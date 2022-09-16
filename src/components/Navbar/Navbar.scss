@@ -1,0 +1,147 @@
+.header {
+  display: flex;
+  flex-direction: column;
+
+  &__up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 225px;
+    background: #f1f1f1;
+
+    &__burger {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+     
+
+      &__burgerMenu {
+
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+        display: none;
+
+        >img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+    }
+
+    &__right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__input {
+        position: relative;
+        width: 406px;
+        margin-right: 76px;
+
+
+        &__text {
+          width: 100%;
+          background: #ffffff;
+          padding: 8px 14px;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 19px;
+          text-transform: capitalize;
+        }
+
+      }
+    }
+  }
+
+  &__down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 60px;
+    background: #16CED4BF;
+    gap: 40px;
+
+    &__item {
+      text-decoration: none;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 26px;
+      letter-spacing: 0.01em;
+      padding: 7px 0;
+      color: #FFFFFF;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header__up {
+    padding: 20px 100px;
+
+
+    &__right__input {
+      width: 286px;
+      margin-right: 30px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .header__up {
+    padding: 20px 40px;
+
+    &__burger__burgerMenu {
+      display: block;
+    }
+
+    &__right__input {
+      display: none;
+    }
+
+    &__contact__logo {
+      width: 100px;
+    }
+  }
+  .header__down {
+    padding:  20px;
+
+    &__item {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .header__up {
+    padding: 11px 17px;
+
+    &__burger__burgerMenu {
+      width: 24px;
+    height: 24px;
+    }
+
+    &__burger__logo {
+      width: 56px;
+
+       >a>img {
+         width: 100%;
+       }
+    }
+
+     &__right__basket {
+       width: 35px;
+
+        >a>img {
+          width: 100%;
+        }
+     }
+  }
+  .header__down {
+    padding:  14px;
+  }
+}
