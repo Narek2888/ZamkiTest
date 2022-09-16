@@ -1,14 +1,20 @@
 import { Switch } from "react-router-dom";
 import "./App.scss";
 import { useRoutes } from "./routes/routes";
+import Navbar from "./components/Navbar/Navbar";
+import Layout from "./Layout/Layout";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const routes = useRoutes();
 
   return (
     <div className="App">
-      <div className="App__container"></div>
-      <Switch>{routes}</Switch>
+      <Navbar />
+      <Layout>
+        <Switch>{routes}</Switch>
+      </Layout>
+      <Footer />
     </div>
   );
 }

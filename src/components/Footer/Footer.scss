@@ -1,0 +1,153 @@
+.footer {
+
+    &__up {
+        display: flex;
+        padding: 45px 300px;
+        gap: 130px;
+
+
+        &__contact {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            &__logo {
+                width: 146px;
+
+                >img {
+                    width: 100%;
+                }
+            }
+
+            &__item {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 0.01em;
+                margin-top: 50px;
+
+            }
+        }
+
+        &__products {
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+
+
+
+            &__text {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 26px;
+                letter-spacing: 0.01em;
+            }
+
+            &__items {
+                height: 100px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                gap: 0 20px;
+                margin-top: 50px;
+            }
+        }
+
+    }
+
+    &__down {
+        background: rgba(22, 206, 212, 0.75);
+        padding: 11px 0;
+
+        >span {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.01em;
+            margin-left: 250px;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .footer__up {
+        padding: 45px 100px;
+    }
+
+    .footer__down>span {
+        margin-left: 120px;
+
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .footer__up {
+        padding: 45px 40px;
+        gap: 60px;
+
+        &__contact__logo {
+            width: 110px;
+        }
+
+        &__contact__item {
+            margin-top: 30px;
+        }
+
+        &__products__items {
+            height: 145px;
+            margin-top: 30px;
+        }
+    }
+
+    .footer__down {
+        padding: 11px 40px;
+
+        >span{
+            margin-left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .footer__up {
+        padding: 20px 18px;
+        gap: 41px;
+
+        &__contact__logo {
+            width: 56px;
+
+        }
+
+        &__contact__item {
+            margin-top: 19px;
+            font-size: 8px;
+            line-height: 11px;
+        }
+
+        &__products__text {
+            font-size: 7px;
+            line-height: 10px;
+        }
+
+        &__products__items {
+            height: 93px;
+            margin-top: 14px;
+
+            &__item {
+                font-size: 8px;
+                line-height: 11px;
+            }
+        }
+    }
+
+    .footer__down {
+        padding: 0px 22px;
+
+        >span {
+            font-size: 8px;
+            line-height: 10px;
+        }
+    }
+}

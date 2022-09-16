@@ -1,0 +1,24 @@
+{
+    "routes": [
+        {
+            "path": "/about",
+            "name": "О компании"
+        },
+        {
+            "path": "/contacts",
+            "name": "Контакты"
+        },
+        {
+            "path": "/novniki",
+            "name": "Новинки"
+        },
+        {
+            "path": "/partners",
+            "name": "Производители"
+        },
+        {
+            "path": "/dostavka",
+            "name": "Доставка"
+        }
+    ]
+}

@@ -9,6 +9,7 @@ import {
   New,
   Partners,
   Paying,
+  Basket
 } from "../pages";
 
 export const routes = [
@@ -60,6 +61,12 @@ export const routes = [
     name: "contacts",
     component: Contacts,
   },
+
+  {
+    path: "/karzina",
+    name: "basket",
+    component: Basket,
+  }
 ];
 
 export const renderRoutes = (routeProps = {}) => {
