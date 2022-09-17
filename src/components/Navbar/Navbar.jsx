@@ -4,30 +4,17 @@ import routes from "./routes.json";
 import logo from "../../assets/logo.png";
 import basketPng from "../../assets/basket.png";
 import burgerbtn from "../../assets/burger.png";
-import { useState } from "react";
-import HomeCategories from "../HomeCategories/HomeCategories";
 
 const Navbar = () => {
   const { routes: appRoutes } = routes;
-  const [active, setActive] = useState(false);
-  console.log("active 1", active);
 
   return (
     <div className="header">
       <div className="header__up">
         <div className="header__up__burger">
-          <div
-            className="header__up__burger__burgerMenu"
-            onClick={() => {
-              setActive(true);
-              console.log("active 2", active);
-
-              return active;
-            }}
-          >
+          <div className="header__up__burger__burgerMenu">
             <img src={burgerbtn} alt="burgerMenu" />
           </div>
-          <HomeCategories active={active} />
 
           <div className="header__up__burger__logo">
             <Link to="/">

@@ -1,5 +1,5 @@
 import image from "./image/manufacturer.png";
-import './Manufacturers.scss'
+import "./Manufacturers.scss";
 
 const Manufacturers = () => {
   const manufacturers = [
@@ -29,10 +29,10 @@ const Manufacturers = () => {
       <div className="manufacturers__logo">
         {manufacturers.map((item, index) => {
           return (
-              <div className="manufacturers__logo__item" key={index}>
-                  <img src={item.img} alt="manufacturer.png" />
-              </div>
-                  )
+            <div className="manufacturers__logo__item" key={index}>
+              <img src={item.img} alt="manufacturer.png" />
+            </div>
+          );
         })}
       </div>
     </div>

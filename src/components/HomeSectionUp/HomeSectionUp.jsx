@@ -1,6 +1,5 @@
 import image from "./image/ruchki.png";
 import "./HomeSectionUp.scss";
-import {Link} from "react-router-dom";
 
 const HomeSectionUp = () => {
   const items = [
@@ -21,20 +20,20 @@ const HomeSectionUp = () => {
     },
 
     {
-        name: "Двери",
-        img: image,
-        id: 3,
-      },
+      name: "Двери",
+      img: image,
+      id: 3,
+    },
     {
       name: "Броненакладки",
       img: image,
       id: 4,
     },
     {
-        name: "ЦИЛИНДРОВЫЕ МЕХАНИЗМЫ",
-        img: image,
-        id: 5,
-      },
+      name: "ЦИЛИНДРОВЫЕ МЕХАНИЗМЫ",
+      img: image,
+      id: 5,
+    },
     // {
     //   name: "Автопороги",
     //   img: image,
@@ -44,18 +43,14 @@ const HomeSectionUp = () => {
 
   return (
     <div className="items">
-      {items.map((item, index) => {
+      {items.map((item) => {
+        const { name, id } = item;
         return (
-          <div key={item.id} className="items__item">
-            {/* <Link to={`/categories/${item.name.toLowerCase()}`}> */}
-            <div className="items__item__img" >
+          <div key={id} className="items__item">
+            <div className="items__item__img">
               <img src={item.img} alt="image" />
             </div>
-            {/* </Link> */}
-
-            <div className="items__item__name">
-                {item.name}
-                </div>
+            <div className="items__item__name">{name}</div>
           </div>
         );
       })}
