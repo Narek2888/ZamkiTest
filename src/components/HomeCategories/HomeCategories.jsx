@@ -1,7 +1,10 @@
 import "./HomeCategories.scss";
 import dropdownPng from "../../assets/dropdown.png";
+import closePng from "../../assets/close.png";
+import { useState } from "react";
 
-const HomeCategories = ({ active }) => {
+const HomeCategories = ({ setActive, active }) => {
+  const [close, setClose] = useState(active);
   const categoriesItem = [
     "Замки",
     "Ручки",
@@ -18,8 +21,23 @@ const HomeCategories = ({ active }) => {
     "Мебельная фурнитура",
     "Кронштейны",
   ];
+
+  const handleClose = (e) => {
+    e.stopPropagation();
+    e.prevenDeafault();
+    setActive((prevState) => !prevState);
+    setClose(!close);
+  };
+
   return (
-    <div className={active ? "activeMenu" : "categories"}>
+    <div className={active ? "activeMenu" : close ? "hide" : "categories"}>
+      <div className={active ? "closeMenu" : "hide"}>
+        <div className="text">КАТЕГОРИИ</div>
+        <div className={"close"}>
+          <img src={closePng} alt="closeMenu" onClick={handleClose} />
+        </div>
+      </div>
+
       {categoriesItem.map((item, index) => {
         return (
           <div className="categories__item" key={index}>

@@ -1,7 +1,8 @@
 import image from "./image/petli.png";
 import "./HomeSectionDown.scss";
 
-const HomeSectionDown = ({ name }) => {
+const HomeSectionDown = () => {
+
   const categories = [
     {
       name: "КРЮЧКИ",
@@ -58,7 +59,6 @@ const HomeSectionDown = ({ name }) => {
       img: image,
     },
   ];
-
   return (
     <div className="homeCategories">
       <div className="homeCategories__text">КАТЕГОРИИ</div>

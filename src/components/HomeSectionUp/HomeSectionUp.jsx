@@ -2,6 +2,7 @@ import image from "./image/ruchki.png";
 import "./HomeSectionUp.scss";
 
 const HomeSectionUp = () => {
+
   const items = [
     {
       name: "ЗАМКИ",
@@ -46,7 +47,13 @@ const HomeSectionUp = () => {
       {items.map((item) => {
         const { name, id } = item;
         return (
-          <div key={id} className="items__item">
+          <div
+            key={id}
+            className="items__item"
+            onClick={() => {
+              console.log("click");
+            }}
+          >
             <div className="items__item__img">
               <img src={item.img} alt="image" />
             </div>

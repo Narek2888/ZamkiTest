@@ -13,7 +13,7 @@
       display: flex;
       align-items: center;
       gap: 13px;
-     
+
 
       &__burgerMenu {
 
@@ -81,23 +81,25 @@
   .header__up {
     padding: 20px 100px;
 
+    &__burger__burgerMenu {
+      display: block;
+    }
 
     &__right__input {
       width: 286px;
       margin-right: 30px;
     }
   }
+  .header__down__item {
+    font-size: 18px;
+  }
+
+
 }
 
-
 @media screen and (max-width: 768px) {
-
   .header__up {
     padding: 20px 40px;
-
-    &__burger__burgerMenu {
-      display: block;
-    }
 
     &__right__input {
       display: none;
@@ -107,8 +109,9 @@
       width: 100px;
     }
   }
+
   .header__down {
-    padding:  20px;
+    padding: 20px;
 
     &__item {
       display: none;
@@ -122,26 +125,27 @@
 
     &__burger__burgerMenu {
       width: 24px;
-    height: 24px;
+      height: 24px;
     }
 
     &__burger__logo {
       width: 56px;
 
-       >a>img {
-         width: 100%;
-       }
+      >a>img {
+        width: 100%;
+      }
     }
 
-     &__right__basket {
-       width: 35px;
+    &__right__basket {
+      width: 35px;
 
-        >a>img {
-          width: 100%;
-        }
-     }
+      >a>img {
+        width: 100%;
+      }
+    }
   }
+
   .header__down {
-    padding:  14px;
+    padding: 14px;
   }
 }
