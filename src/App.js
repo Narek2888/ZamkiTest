@@ -1,16 +1,16 @@
 import { Switch } from "react-router-dom";
 import "./App.scss";
 import { useRoutes } from "./routes/routes";
-import Navbar from "./components/Navbar/Navbar";
 import Layout from "./Layout/Layout";
 import Footer from "./components/Footer/Footer";
+import NavBar2 from "./components/Navabar2/NavBar2";
 
 function App() {
   const routes = useRoutes();
 
   return (
     <div className="App">
-      <Navbar />
+      <NavBar2 />
       <Layout>
         <Switch>{routes}</Switch>
       </Layout>
