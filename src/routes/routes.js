@@ -8,9 +8,9 @@ import {
   Home,
   New,
   Partners,
-  Paying,
-  Basket
+  Paying
 } from "../pages";
+import Basket from '../pages/Basket/Basket'
 
 export const routes = [
   {
