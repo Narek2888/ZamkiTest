@@ -3,16 +3,8 @@ import closePng from "../../assets/close.png";
 import dropdownPng from "../../assets/dropdown.png";
 import "./HomeCategories.scss";
 
-const HomeCategories = ({ setActive, active }) => {
-  const [close, setClose] = useState(active);
+const HomeCategories = ({navRef, closeMenuRef}) => {
   const [categories, setCategories] = useState([]);
-
-  const handleClose = (e) => {
-    e.stopPropagation();
-    e.prevenDeafault();
-    setActive((prevState) => !prevState);
-    setClose(!close);
-  };
 
   const getData = async () => {
     const url = "http://192.168.16.105:1337/api/categories";
@@ -27,21 +19,25 @@ const HomeCategories = ({ setActive, active }) => {
     getData();
   }, []);
 
+const closeNavbar = () => { 
+  navRef.current.classList.remove("width")
+}
+
   return (
-    <div className={active ? "activeMenu" : close ? "hide" : "categories"}>
-      <div className={active ? "closeMenu" : "hide"}>
+    <div ref={navRef} className={"categories"}>
+      <div ref={closeMenuRef} className={"hide"}>
         <div className="text">КАТЕГОРИИ</div>
-        <div className={"close"}>
-          <img src={closePng} alt="closeMenu" onClick={handleClose} />
+        <div className="close" onClick={closeNavbar}>
+          <img src={closePng} alt="closeMenu" />
         </div>
       </div>
 
-      {categories.map((item) => {
-        const { id, attributes } = item;
-        const { item: name } = attributes;
+      {categories.map((i) => {
+        const { id, attributes } = i;
+        const { item } = attributes;
         return (
           <div className="categories__item" key={id}>
-            {name}
+            {item}
             <img
               src={dropdownPng}
               alt="dropdown"
@@ -55,3 +51,6 @@ const HomeCategories = ({ setActive, active }) => {
 };
 
 export default HomeCategories;
+
+
+
