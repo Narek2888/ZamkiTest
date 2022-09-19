@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import routes from "./routes.json";
@@ -5,22 +6,34 @@ import logo from "../../assets/logo.png";
 import basketPng from "../../assets/basket.png";
 import burgerbtn from "../../assets/burger.png";
 import HomeCategories from "../HomeCategories/HomeCategories";
-import { useState } from "react";
 
 const Navbar = () => {
-  const [active, setActive] = useState(false);
+  const [size, setSize] = useState(window.innerWidth);
+
+  const navRef = useRef();
+  const closeMenuRef = useRef();
+
   const { routes: appRoutes } = routes;
+
+  useEffect(() => {
+    function handleResize() {
+      setSize(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+  }, [size]);
+
+  const showNavbar = () => {
+    navRef.current.classList.toggle("width")
+    closeMenuRef.current.classList.add("closeMenu")
+  }
 
   return (
     <div className="header">
       <div className="header__up">
         <div className="header__up__burger">
-          <div
-            className="header__up__burger__burgerMenu"
-            onClick={() => setActive(!active)}
-          >
-            <img src={burgerbtn} alt="burgerMenu" />
-            <HomeCategories setActive={setActive} active={active} />
+          <div className="header__up__burger__burgerMenu">
+            <img src={burgerbtn} alt="burgerMenu"  onClick={showNavbar}/>
+            {size < 1024 && (<HomeCategories navRef={navRef} closeMenuRef={closeMenuRef}/>)}
           </div>
           <div className="header__up__burger__logo">
             <Link to="/">
