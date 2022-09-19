@@ -1,71 +1,73 @@
 .items {
-    height: 160px;
+  height: 160px;
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin: 30px 0 80px;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  &__item {
+    width: 110px;
     display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    margin: 30px 0 80px;
-    flex-wrap: wrap;
-    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
 
-    &__item {
-        width: 110px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
+    &__img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 5px solid #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
 
-        &__img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 5px solid #FFFFFF;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-
-            >img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        &__name {
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 19px;
-            text-transform: capitalize;
-            margin-top: 21px;
-
-        }
+      > img {
+        width: 100%;
+        height: 100%;
+      }
     }
+
+    &__name {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: capitalize;
+      margin-top: 21px;
+    }
+  }
 }
 
 .border_blue {
-    border: 5px solid blue;
-
+  border: 5px solid blue;
 }
 
-@media screen and (max-Width: 426px) {
+@media screen and (max-width: 426px) {
+  .items {
+    height: 92px;
+    gap: 10px 4px;
+    margin: 11px 0 41px;
 
-    .items {
-        height: 92px;
-        gap: 10px 4px;
-        margin: 11px 0 41px;
+    &__item {
+      width: 67px;
 
-        &__item {
-            width: 67px;
+      &__name {
+        font-size: 8px;
+        line-height: 10px;
+        margin-top: 11px;
+      }
 
-            &__name {
-                font-size: 8px;
-                line-height: 10px;
-                margin-top: 11px;
-            }
-
-            &__img {
-                width: 60px;
-                height: 60px;
-                border: 2px solid #F5F5F5;
-                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-            }
-        }
+      &__img {
+        width: 60px;
+        height: 60px;
+        border: 2px solid #f5f5f5;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+      }
     }
+  }
+}
+
+.caroussel {
+  // Arman
+  padding-left: 25px;
 }

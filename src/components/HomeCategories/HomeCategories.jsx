@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import closePng from "../../assets/close.png";
-import dropdownPng from "../../assets/dropdown.png";
+import CategoriesItem from "./CategoriesItem";
 import "./HomeCategories.scss";
 
-const HomeCategories = ({navRef, closeMenuRef}) => {
+const HomeCategories = ({ navRef, closeMenuRef }) => {
   const [categories, setCategories] = useState([]);
 
   const getData = async () => {
-    const url = "http://192.168.16.105:1337/api/categories";
+    const url = "http://zamki-strapi.codium.pro/api/categories?populate=*";
     const data = await fetch(url).then((res) => res.json());
     setCategories((prev) => {
       const res = [...prev, ...data.data];
@@ -19,9 +19,9 @@ const HomeCategories = ({navRef, closeMenuRef}) => {
     getData();
   }, []);
 
-const closeNavbar = () => { 
-  navRef.current.classList.remove("width")
-}
+  const closeNavbar = () => {
+    navRef.current.classList.remove("width");
+  };
 
   return (
     <div ref={navRef} className={"categories"}>
@@ -32,25 +32,13 @@ const closeNavbar = () => {
         </div>
       </div>
 
-      {categories.map((i) => {
-        const { id, attributes } = i;
-        const { item } = attributes;
-        return (
-          <div className="categories__item" key={id}>
-            {item}
-            <img
-              src={dropdownPng}
-              alt="dropdown"
-              className="categories__item__dropdown"
-            />
-          </div>
-        );
-      })}
+      {categories.length &&
+        categories.map((i) => {
+          const { id, attributes } = i;
+          return <CategoriesItem attributes={attributes} id={id} key={id} />;
+        })}
     </div>
   );
 };
 
 export default HomeCategories;
-
-
-

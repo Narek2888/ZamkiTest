@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import image from "../HomeSectionUp/image/ruchki.png";
 import buyImg from "../../assets/basket.png";
 import close from "../../assets/close.png";
@@ -45,7 +45,7 @@ const BasketSection = () => {
         {basketItem.map((item, index) => {
           const { name, model, material, price, image } = item;
 
-          totalPrice += price
+          totalPrice += price;
 
           return (
             <div className="basketSection__items__item" key={index}>
@@ -83,13 +83,12 @@ const BasketSection = () => {
             </div>
           );
         })}
-
+      </div>
+      <div className="basketSection__items__buy">
+        <div className="basketSection__items__buy__total">
+          Итого: {totalPrice} руб.
         </div>
-        <div className="basketSection__items__buy">
-          <div className="basketSection__items__buy__total">
-            Итого: {totalPrice} руб.
-          </div>
-          <div className="basketSection__items__buy__order">Оформить заказ</div>
+        <div className="basketSection__items__buy__order">Оформить заказ</div>
       </div>
     </div>
   );
