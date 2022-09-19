@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import "./BasketSection.scss";
 import image from "../HomeSectionUp/image/ruchki.png";
 import buyImg from "../../assets/basket.png";
 import close from "../../assets/close.png";
-import "./BasketSection.scss";
+import Modal from '../../pages/Basket/Modal/Modal'
 
 const BasketSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const basketItem = [
     {
       name: "Дверные ручки-защелки",
@@ -88,8 +91,16 @@ const BasketSection = () => {
         <div className="basketSection__items__buy__total">
           Итого: {totalPrice} руб.
         </div>
-        <div className="basketSection__items__buy__order">Оформить заказ</div>
+        <div
+          className="basketSection__items__buy__order"
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        >
+          Оформить заказ
+        </div>
       </div>
+      {modalOpen && <Modal setModalOpen={setModalOpen} />}
     </div>
   );
 };
