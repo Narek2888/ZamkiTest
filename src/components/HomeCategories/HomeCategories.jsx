@@ -1,26 +1,11 @@
-import "./HomeCategories.scss";
-import dropdownPng from "../../assets/dropdown.png";
+import { useEffect, useState } from "react";
 import closePng from "../../assets/close.png";
-import { useState } from "react";
+import dropdownPng from "../../assets/dropdown.png";
+import "./HomeCategories.scss";
 
 const HomeCategories = ({ setActive, active }) => {
   const [close, setClose] = useState(active);
-  const categoriesItem = [
-    "Замки",
-    "Ручки",
-    "Петли",
-    "Крючки",
-    "Броненакладки",
-    "Броненакладки",
-    " Дверная фурнитура",
-    " Доводчики дверей",
-    " Фурнитура к раздвижным дверям",
-    " Фурнитура для стеклянных дверей",
-    " Перекодировочные ключи",
-    "Оконная и ПВХ фурнитура",
-    "Мебельная фурнитура",
-    "Кронштейны",
-  ];
+  const [categories, setCategories] = useState([]);
 
   const handleClose = (e) => {
     e.stopPropagation();
@@ -28,6 +13,19 @@ const HomeCategories = ({ setActive, active }) => {
     setActive((prevState) => !prevState);
     setClose(!close);
   };
+
+  const getData = async () => {
+    const url = "http://192.168.16.105:1337/api/categories";
+    const data = await fetch(url).then((res) => res.json());
+    setCategories((prev) => {
+      const res = [...prev, ...data.data];
+      return [...res];
+    });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className={active ? "activeMenu" : close ? "hide" : "categories"}>
@@ -38,10 +36,12 @@ const HomeCategories = ({ setActive, active }) => {
         </div>
       </div>
 
-      {categoriesItem.map((item, index) => {
+      {categories.map((item) => {
+        const { id, attributes } = item;
+        const { item: name } = attributes;
         return (
-          <div className="categories__item" key={index}>
-            {item}
+          <div className="categories__item" key={id}>
+            {name}
             <img
               src={dropdownPng}
               alt="dropdown"

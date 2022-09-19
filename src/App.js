@@ -3,14 +3,16 @@ import "./App.scss";
 import { useRoutes } from "./routes/routes";
 import Layout from "./Layout/Layout";
 import Footer from "./components/Footer/Footer";
-import NavBar2 from "./components/Navabar2/NavBar2";
+import NavBar from "./components/Navbar/Navbar";
+import Slider from "./components/Slider/Slider";
 
 function App() {
   const routes = useRoutes();
 
   return (
     <div className="App">
-      <NavBar2 />
+      <NavBar />
+      <Slider />
       <Layout>
         <Switch>{routes}</Switch>
       </Layout>

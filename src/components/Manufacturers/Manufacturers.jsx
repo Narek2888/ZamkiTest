@@ -22,6 +22,7 @@ const Manufacturers = () => {
       img: image,
     },
   ];
+
   return (
     <div className="manufacturers">
       <div className="manufacturers__text">Производители</div>
