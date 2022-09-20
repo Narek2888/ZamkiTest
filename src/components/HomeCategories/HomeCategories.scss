@@ -110,13 +110,15 @@
   border-left: 1px solid #9f9f9f;
   border-right: 1px solid #9f9f9f;
 
-
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     font-size: 13px;
   }
 
-  &__item__dropdown{
-    margin-right: 13px;
-    transform: rotate(-90deg);
+  &__item {
+    cursor: pointer;
+    &__dropdown {
+      margin-right: 13px;
+      transform: rotate(-90deg);
+    }
   }
 }
