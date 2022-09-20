@@ -4,13 +4,13 @@ import {
   About,
   Categories,
   Contacts,
-  Delivery,
   Home,
   New,
   Partners,
   Paying
 } from "../pages";
 import Basket from '../pages/Basket/Basket'
+import Delivery from '../pages/Delivery/Delivery'
 
 export const routes = [
   {

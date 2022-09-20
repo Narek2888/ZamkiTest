@@ -1,14 +1,17 @@
 import React from "react";
-import "./Basket.scss"
-import HomeCategories from '../../components/HomeCategories/HomeCategories'
+import "./Basket.scss";
+import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import BasketSection from "../../components/BasketSection/BasketSection";
+import Manufacturers from "../../components/Manufacturers/Manufacturers";
 
 const Basket = () => {
-
   return (
-    <div  className="basket">
-      <HomeCategories />
-      <BasketSection />
+    <div>
+      <div className="basket">
+        <HomeCategories />
+        <BasketSection />
+      </div>
+      <Manufacturers />
     </div>
   );
 };

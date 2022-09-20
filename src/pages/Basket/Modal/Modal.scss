@@ -9,6 +9,10 @@
     gap: 21px;
     position: relative;
 
+    @media screen and (max-width: 1024px) {
+        width: 339px;
+    }
+
 
     &__close {
         width: 50px;
@@ -24,6 +28,10 @@
         font-size: 20px;
         line-height: 26px;
         letter-spacing: 0.01em;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 16px;
+        }   
     }
 
     &__message {
@@ -35,8 +43,17 @@
         background: #16CED4;
         padding: 45px 39px;
 
+        @media screen and (max-width: 1024px) {
+            font-size: 19px;
+            padding: 55px 12px;
+        }
+
         >p {
             font-size: 35px;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 26px;
+            }
         }
     }
 }

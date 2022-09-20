@@ -90,7 +90,7 @@ const HomeSectionUp = () => {
           );
         })
       ) : (
-        <ReactCaroussel slidesToShow={6} slidesToScroll={3} infinite={true}>
+        <ReactCaroussel slidesToShow={5} slidesToScroll={3} infinite={true}>
           {Array(items.length)
             .fill(2)
             .map((_, index) => (

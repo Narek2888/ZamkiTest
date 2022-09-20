@@ -1,16 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Modal.scss";
 import donePng from "../../../assets/done.png";
 import close from "../../../assets/close.png";
 
 const Modal = ({ setModalOpen }) => {
-
-    // useEffect(() => {
-    //     document.addEventListener("mousedown", () =>{
-    //       setModalOpen(false)
-    //     });
-        
-    //   }, [])
 
   return (
     <div className="modalBackground">
