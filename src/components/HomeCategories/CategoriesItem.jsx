@@ -19,10 +19,19 @@ const CategoriesItem = ({ attributes }) => {
       </div>
 
       {open && subs?.length ? (
-        <div className={open ? "Arman" : ""}>
+        <div className={open ? "subcategory" : ""}>
           {subs.map((i) => {
             const { subcategory_rus } = i.attributes;
-            return <span key={i.id}>{subcategory_rus}</span>;
+            return (
+              <div className="subcategory__item" key={i.id}>
+                <img
+                  src={dropdownPng}
+                  alt="subcategory_drop"
+                  className="subcategory__item__dropdown"
+                />
+                {subcategory_rus}
+              </div>
+            );
           })}
         </div>
       ) : null}

@@ -11,6 +11,7 @@
     font-weight: 500;
     font-size: 17px;
     position: relative;
+    cursor: pointer;
 
     &__dropdown {
       position: absolute;
@@ -28,7 +29,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  // width: 333px;
   align-items: center;
   padding: 0 34px 20px;
   transition: 0.8s;
@@ -73,8 +73,12 @@
     &__item {
       width: 264px;
       padding: 17px;
-      font-size: 13px;
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .categories__item {
+    font-size: 13px;
   }
 }
 
@@ -91,7 +95,7 @@
   left: 0;
 }
 
-.Arman {
+.subcategory {
   display: flex;
   padding: 34px 28px;
   flex-direction: column;
@@ -100,8 +104,19 @@
   font-style: normal;
   font-weight: 500;
   font-size: 17.7236px;
+  line-height: 30px;
   color: #000000;
   gap: 10px;
   border-left: 1px solid #9f9f9f;
   border-right: 1px solid #9f9f9f;
+
+
+  @media screen and (max-width: 768px){
+    font-size: 13px;
+  }
+
+  &__item__dropdown{
+    margin-right: 13px;
+    transform: rotate(-90deg);
+  }
 }
