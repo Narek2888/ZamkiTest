@@ -1,9 +1,8 @@
 .manufacturers {
-  margin-top: 45px;
 
-  @media screen and (max-width: 426px) {
-    margin-top: 0;
-  }
+  // @media screen and (max-width: 426px) {
+  //   margin-top: 0;
+  // }
 
   &__text {
     font-weight: 500;

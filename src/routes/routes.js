@@ -6,11 +6,13 @@ import {
   Contacts,
   Home,
   New,
-  Partners,
-  Paying
+  Delivery,
+  
 } from "../pages";
 import Basket from '../pages/Basket/Basket'
-import Delivery from '../pages/Delivery/Delivery'
+import Paying from '../pages/Paying/Paying'
+import MakeAnOrder from '../components/BasketSection/MakeAnOrder/MakeAnOrder'
+import Partners from '../pages/Partners/Partners'
 
 export const routes = [
   {
@@ -66,6 +68,11 @@ export const routes = [
     path: "/karzina",
     name: "basket",
     component: Basket,
+  },
+  {
+    path: "/karzina/aformitzakaz",
+    name: "MakeAnOrder",
+    component: MakeAnOrder,
   }
 ];
 

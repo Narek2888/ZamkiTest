@@ -145,7 +145,7 @@
     
                 &__item {
                     font-size: 8px;
-                    line-height: 11px;
+                    line-height: 13px;
                 }
             }
         }
@@ -166,7 +166,11 @@
         gap: 40px;
 
         &__products__items{
-            height: 150px;
+            height: 200px;
+
+            &__item{
+                line-height: 15px;
+            }
         }
     }
 }

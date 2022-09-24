@@ -1,15 +1,15 @@
 import React from "react";
-import "./Delivery.scss";
+import "./Paying.scss";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
 
-const Delivery = () => {
+const Paying = () => {
   return (
     <div>
-      <div className="delivery">
+      <div className="paying">
         <HomeCategories />
-        <div className="delivery__text">
-          <h2 className="delivery__text__title">Оплата</h2>
+        <div className="paying__text">
+          <h2 className="paying__text__title">Оплата</h2>
           <h3 className="padding"> Оптовым клиентам</h3>
           Компания «Замки тут» приглашает к сотрудничеству оптовых клиентов из
           Москвы, регионов РФ и стран ближнего зарубежья. Мы осуществляем
@@ -95,4 +95,4 @@ const Delivery = () => {
   );
 };
 
-export default Delivery;
+export default Paying;
