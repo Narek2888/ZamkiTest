@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./BasketSection.scss";
 import image from "../HomeSectionUp/image/ruchki.png";
 import buyImg from "../../assets/basket.png";
 import close from "../../assets/close.png";
-import Modal from '../../pages/Basket/Modal/Modal'
+import { Link } from "react-router-dom";
 
 const BasketSection = () => {
-  const [modalOpen, setModalOpen] = useState(false);
 
   const basketItem = [
     {
@@ -52,7 +51,7 @@ const BasketSection = () => {
 
           return (
             <div className="basketSection__items__item" key={index}>
-              <div className="basketSection__items__item__close closeRed">
+              <div className="basketSection__items__item__close">
                 <img src={close} alt="deleteItem" />
               </div>
               <div className="basketSection__items__item__img">
@@ -91,16 +90,14 @@ const BasketSection = () => {
         <div className="basketSection__items__buy__total">
           Итого: {totalPrice} руб.
         </div>
-        <div
-          className="basketSection__items__buy__order"
-          onClick={() => {
-            setModalOpen(true);
-          }}
-        >
+      
+      <Link  to="/karzina/aformitzakaz">
+      <div
+          className="basketSection__items__buy__order" >
           Оформить заказ
         </div>
+      </Link>  
       </div>
-      {modalOpen && <Modal setModalOpen={setModalOpen} />}
     </div>
   );
 };
