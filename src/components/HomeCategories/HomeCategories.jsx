@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import closePng from "../../assets/close.png";
 import CategoriesItem from "./CategoriesItem";
+import loadingImg from "./loading.png";
 import "./HomeCategories.scss";
 
 const HomeCategories = ({ navRef, closeMenuRef }) => {
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getData = async () => {
+    setLoading(true);
     const url = "http://zamki-strapi.codium.pro/api/categories?populate=*";
     const data = await fetch(url).then((res) => res.json());
     setCategories((prev) => {
       const res = [...prev, ...data.data];
       return [...res];
     });
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -32,11 +36,14 @@ const HomeCategories = ({ navRef, closeMenuRef }) => {
         </div>
       </div>
 
-      {categories.length &&
-        categories.map((i) => {
-          const { id, attributes } = i;
-          return <CategoriesItem attributes={attributes} id={id} key={id} />;
-        })}
+      {loading && !categories.length && <img src={loadingImg} alt="loading" />}
+
+      {categories.length
+        ? categories.map((i) => {
+            const { id, attributes } = i;
+            return <CategoriesItem attributes={attributes} id={id} key={id} />;
+          })
+        : null}
     </div>
   );
 };
