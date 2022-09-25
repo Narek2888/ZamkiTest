@@ -1,18 +1,13 @@
+import React from "react";
 import { Route } from "react-router-dom";
 import { useMemo } from "react";
-import {
-  About,
-  Categories,
-  Contacts,
-  Home,
-  New,
-  Delivery,
-  
-} from "../pages";
-import Basket from '../pages/Basket/Basket'
-import Paying from '../pages/Paying/Paying'
-import MakeAnOrder from '../components/BasketSection/MakeAnOrder/MakeAnOrder'
-import Partners from '../pages/Partners/Partners'
+import { Categories, Contacts, Home, New } from "../pages";
+import Basket from "../pages/Basket/Basket";
+import Paying from "../pages/Paying/Paying";
+import MakeAnOrder from "../components/BasketSection/MakeAnOrder/MakeAnOrder";
+import Partners from "../pages/Partners/Partners";
+import About from "../pages/About/About";
+import Delivery from "../pages/Delivery/Delivery";
 
 export const routes = [
   {
@@ -73,7 +68,7 @@ export const routes = [
     path: "/karzina/aformitzakaz",
     name: "MakeAnOrder",
     component: MakeAnOrder,
-  }
+  },
 ];
 
 export const renderRoutes = (routeProps = {}) => {

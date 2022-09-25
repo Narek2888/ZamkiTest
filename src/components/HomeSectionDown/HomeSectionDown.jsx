@@ -1,8 +1,8 @@
+import React from "react";
 import image from "./image/petli.png";
 import "./HomeSectionDown.scss";
 
 const HomeSectionDown = () => {
-
   const categories = [
     {
       name: "КРЮЧКИ",

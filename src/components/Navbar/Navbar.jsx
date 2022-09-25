@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import routes from "./routes.json";
@@ -23,17 +23,19 @@ const Navbar = () => {
   }, [size]);
 
   const showNavbar = () => {
-    navRef.current.classList.toggle("width")
-    closeMenuRef.current.classList.add("closeMenu")
-  }
+    navRef.current.classList.toggle("width");
+    closeMenuRef.current.classList.add("closeMenu");
+  };
 
   return (
     <div className="header">
       <div className="header__up">
         <div className="header__up__burger">
           <div className="header__up__burger__burgerMenu">
-            <img src={burgerbtn} alt="burgerMenu"  onClick={showNavbar}/>
-            {size < 1024 && (<HomeCategories navRef={navRef} closeMenuRef={closeMenuRef}/>)}
+            <img src={burgerbtn} alt="burgerMenu" onClick={showNavbar} />
+            {size < 1024 && (
+              <HomeCategories navRef={navRef} closeMenuRef={closeMenuRef} />
+            )}
           </div>
           <div className="header__up__burger__logo">
             <Link to="/">

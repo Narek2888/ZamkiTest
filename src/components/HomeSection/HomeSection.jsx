@@ -1,3 +1,4 @@
+import React from "react";
 import "./HomeSection.scss";
 import HomeSectionUp from "../HomeSectionUp/HomeSectionUp";
 import HomeSectionDown from "../HomeSectionDown/HomeSectionDown";

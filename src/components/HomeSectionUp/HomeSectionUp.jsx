@@ -1,3 +1,4 @@
+import React from "react";
 import image from "./image/ruchki.png";
 import "./HomeSectionUp.scss";
 import ReactCaroussel from "react-caroussel";

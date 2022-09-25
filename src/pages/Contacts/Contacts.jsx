@@ -8,9 +8,9 @@ import {
   faCommentDots,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-import MapPng from "./map.png";
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
 import Layout from "../../Layout/Layout";
+import Map from "./Map";
 
 const Contacts = () => {
   return (
@@ -53,7 +53,7 @@ const Contacts = () => {
               </div>
             </div>
             <div className="contact__section__discription__map">
-              <img src={MapPng} alt="" />
+              <Map />
             </div>
           </div>
         </div>

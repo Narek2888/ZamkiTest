@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import closePng from "../../assets/close.png";
 import CategoriesItem from "./CategoriesItem";
 import loadingImg from "./loading.png";

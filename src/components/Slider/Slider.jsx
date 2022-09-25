@@ -1,23 +1,23 @@
+import React, { useEffect, useState, useRef } from "react";
 import "./Slider.scss";
-import React, { useEffect, useState, useRef, useMemo } from "react";
 
-const FirstELement = () => {
+const FirstELement = ({ item }) => {
+  const { background_image, button, text, title } = item.attributes;
   return (
-    <div className="first__slide">
-      <span className="first__slide__title">Новинки!</span>
-      <span className="first__slide__txt">
-        Высокое европейское качество из Португалии
-      </span>
-      <button className="first__slide__btn">Подробности акции</button>
+    <div
+      className="first__slide"
+      style={{ backgroundImage: `url(${background_image})` }}
+    >
+      <span className="first__slide__title">{title}</span>
+      <span className="first__slide__txt">{text}</span>
+      {button ? (
+        <button className="first__slide__btn">Подробности акции</button>
+      ) : null}
     </div>
   );
 };
 
-const Slider = () => {
-  const colors = useMemo(
-    () => [<FirstELement />, <FirstELement />, <FirstELement />],
-    []
-  );
+const Slider = ({ categories }) => {
   const delay = 2500;
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
@@ -33,7 +33,7 @@ const Slider = () => {
     timeoutRef.current = setTimeout(
       () =>
         setIndex((prevIndex) =>
-          prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+          prevIndex === categories?.length - 1 ? 0 : prevIndex + 1
         ),
       delay
     );
@@ -50,11 +50,13 @@ const Slider = () => {
         className="slideshowSlider"
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
       >
-        {colors.map((backgroundColor, index) => (
-          <div className="slide" key={index}>
-            {backgroundColor}
-          </div>
-        ))}
+        {categories.map((item) => {
+          return (
+            <div className="slide" key={item.id}>
+              <FirstELement item={item} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
