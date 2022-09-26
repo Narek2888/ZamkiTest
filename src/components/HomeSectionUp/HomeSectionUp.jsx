@@ -1,8 +1,15 @@
 import React from "react";
 import image from "./image/ruchki.png";
 import "./HomeSectionUp.scss";
-import ReactCaroussel from "react-caroussel";
-import "react-caroussel/dist/index.css";
+import { EffectFade } from "swiper";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const HomeSectionUp = () => {
   const items = [
@@ -91,24 +98,31 @@ const HomeSectionUp = () => {
           );
         })
       ) : (
-        <ReactCaroussel slidesToShow={5} slidesToScroll={3} infinite={true}>
-          {Array(items.length)
-            .fill(2)
-            .map((_, index) => (
-              <div
-                key={index}
-                className="items__item"
-                onClick={() => {
-                  console.log("click");
-                }}
-              >
-                <div className="items__item__img">
-                  <img src={items[index].img} alt="a,t" />
+        <Swiper
+          modules={EffectFade}
+          spaceBetween={50}
+          slidesPerView={6}
+          zoom={false}
+          loop={true}
+        >
+          {items.map((item) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <div
+                  className="items__item"
+                  onClick={() => {
+                    console.log("click");
+                  }}
+                >
+                  <div className="items__item__img">
+                    <img src={item.img} alt="item" />
+                  </div>
+                  <div className="items__item__name">{items.name}</div>
                 </div>
-                <div className="items__item__name">{items[index].name}</div>
-              </div>
-            ))}
-        </ReactCaroussel>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       )}
     </div>
   );

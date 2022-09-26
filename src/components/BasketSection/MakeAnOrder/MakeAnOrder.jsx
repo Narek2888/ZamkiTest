@@ -71,9 +71,9 @@ const MakeAnOrder = () => {
 
               <div className="makeAnOrder__up__section__input__comment">
                 <p className="makeAnOrder__up__section__input__comment__text">
-                  Комментарии к заказу{" "}
+                  Комментарии к заказу
                 </p>
-                <input type="text" placeholder="Օставьте сообщение " />
+                <input type="text" placeholder="Օставьте сообщение" />
               </div>
             </div>
 

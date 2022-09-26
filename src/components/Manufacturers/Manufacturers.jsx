@@ -1,37 +1,23 @@
 import React, { useEffect, useState } from "react";
-// import Marquee from "react-marquee-slider";
-import times from "lodash/times";
 import { nanoid } from "nanoid";
-
-import image from "./image/manufacturer.png";
 import "./Manufacturers.scss";
 import Marquee from "react-fast-marquee";
 
 const Manufacturers = () => {
-  const manufacturers = [
-    {
-      img: image,
-    },
-    {
-      img: image,
-    },
-    {
-      img: image,
-    },
-    {
-      img: image,
-    },
-    {
-      img: image,
-    },
-    {
-      img: image,
-    },
-  ];
-
+  const [manufacturers, setManufacturers] = useState([]);
   const [key, setKey] = useState(nanoid());
 
+  const getData = async () => {
+    const url = "http://zamki-strapi.codium.pro/api/brands?populate=*";
+    const data = await fetch(url).then((res) => res.json());
+    setManufacturers((prev) => {
+      const res = [...prev, ...data.data];
+      return [...res];
+    });
+  };
+
   useEffect(() => {
+    getData();
     setKey(nanoid());
   }, []);
 
@@ -41,16 +27,20 @@ const Manufacturers = () => {
 
       <div className="manufacturers__logo">
         <Marquee key={key} gradientColor={false}>
-          {times(6, Number).map((id, i) => (
-            <div key={i} className="carusels">
-              <img
-                className="carusel-img"
-                src={manufacturers[id].img}
-                key={`logo-${id}`}
-                alt=""
-              />
-            </div>
-          ))}
+          {manufacturers.map((item) => {
+            const { attributes } = item.attributes.logo.data[0];
+            const { url } = attributes;
+
+            return (
+              <div key={nanoid()} className="carusels">
+                <img
+                  className="carusel-img"
+                  src={`http://zamki-strapi.codium.pro/${url}`}
+                  alt="brand"
+                />
+              </div>
+            );
+          })}
         </Marquee>
       </div>
     </div>

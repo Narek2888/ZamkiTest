@@ -7,18 +7,15 @@ import Slider from "../components/Slider/Slider";
 import "./Home.scss";
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
 
   const getData = async () => {
-    setLoading(true);
     const url = "http://zamki-strapi.codium.pro/api/sliders";
     const data = await fetch(url).then((res) => res.json());
     setCategories(() => {
       const res = [...data.data];
       return [...res];
     });
-    setLoading(false);
   };
 
   useEffect(() => {
