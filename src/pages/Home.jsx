@@ -10,7 +10,7 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
 
   const getData = async () => {
-    const url = "http://zamki-strapi.codium.pro/api/sliders";
+    const url = "https://zamki-strapi.codium.pro/api/sliders";
     const data = await fetch(url).then((res) => res.json());
     setCategories(() => {
       const res = [...data.data];

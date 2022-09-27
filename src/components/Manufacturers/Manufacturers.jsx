@@ -8,7 +8,7 @@ const Manufacturers = () => {
   const [key, setKey] = useState(nanoid());
 
   const getData = async () => {
-    const url = "http://zamki-strapi.codium.pro/api/brands?populate=*";
+    const url = "https://zamki-strapi.codium.pro/api/brands?populate=*";
     const data = await fetch(url).then((res) => res.json());
     setManufacturers((prev) => {
       const res = [...prev, ...data.data];
@@ -35,7 +35,7 @@ const Manufacturers = () => {
               <div key={nanoid()} className="carusels">
                 <img
                   className="carusel-img"
-                  src={`http://zamki-strapi.codium.pro/${url}`}
+                  src={`https://zamki-strapi.codium.pro/${url}`}
                   alt="brand"
                 />
               </div>

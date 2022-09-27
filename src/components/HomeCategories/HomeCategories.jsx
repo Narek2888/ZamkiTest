@@ -10,7 +10,7 @@ const HomeCategories = ({ navRef, closeMenuRef }) => {
 
   const getData = async () => {
     setLoading(true);
-    const url = "http://zamki-strapi.codium.pro/api/categories?populate=*";
+    const url = "https://zamki-strapi.codium.pro/api/categories?populate=*";
     const data = await fetch(url).then((res) => res.json());
     setCategories((prev) => {
       const res = [...prev, ...data.data];

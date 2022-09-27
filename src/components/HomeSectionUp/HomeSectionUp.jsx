@@ -1,88 +1,15 @@
 import React from "react";
-import image from "./image/ruchki.png";
 import "./HomeSectionUp.scss";
 import { EffectFade } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const HomeSectionUp = () => {
-  const items = [
-    {
-      name: "ЗАМКИ",
-      img: image,
-      id: 0,
-    },
-    {
-      name: "РУЧКИ",
-      img: image,
-      id: 1,
-    },
-    {
-      name: "ПЕТЛИ",
-      img: image,
-      id: 2,
-    },
-
-    {
-      name: "Двери",
-      img: image,
-      id: 3,
-    },
-    {
-      name: "Броненакладки",
-      img: image,
-      id: 4,
-    },
-    {
-      name: "ЦИЛИНДРОВЫЕ МЕХАНИЗМЫ",
-      img: image,
-      id: 5,
-    },
-
-    {
-      name: "ЗАМКИ",
-      img: image,
-      id: 6,
-    },
-    {
-      name: "РУЧКИ",
-      img: image,
-      id: 7,
-    },
-    {
-      name: "ПЕТЛИ",
-      img: image,
-      id: 8,
-    },
-
-    {
-      name: "Двери",
-      img: image,
-      id: 9,
-    },
-    {
-      name: "Броненакладки",
-      img: image,
-      id: 10,
-    },
-    {
-      name: "ЦИЛИНДРОВЫЕ МЕХАНИЗМЫ",
-      img: image,
-      id: 11,
-    },
-    // {
-    //   name: "Автопороги",
-    //   img: image,
-    //   id: 6,
-    // }
-  ];
-
+const HomeSectionUp = ({ items, handleSelect }) => {
   return (
     <div className="items">
       {items.length <= 6 ? (
@@ -113,7 +40,7 @@ const HomeSectionUp = () => {
                 <div
                   className="items__item"
                   onClick={() => {
-                    console.log("click");
+                    handleSelect(item.nameEng);
                   }}
                 >
                   <div className="items__item__img">
