@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import dropdownPng from "../../assets/dropdown.png";
 import "./HomeCategories.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const CategoriesItem = ({ attributes }) => {
   const { item, subcategories } = attributes;
@@ -11,9 +12,8 @@ const CategoriesItem = ({ attributes }) => {
     <div>
       <div className="categories__item" onClick={() => setOpen(!open)}>
         {item}
-        <img
-          src={dropdownPng}
-          alt="dropdown"
+        <FontAwesomeIcon
+          icon={faChevronDown}
           className="categories__item__dropdown"
         />
       </div>
@@ -24,9 +24,8 @@ const CategoriesItem = ({ attributes }) => {
             const { subcategory_rus } = i.attributes;
             return (
               <div className="subcategory__item" key={i.id}>
-                <img
-                  src={dropdownPng}
-                  alt="subcategory_drop"
+                <FontAwesomeIcon
+                  icon={faChevronDown}
                   className="subcategory__item__dropdown"
                 />
                 {subcategory_rus}
