@@ -12,10 +12,12 @@ const CategoriesItem = ({ attributes }) => {
     <div>
       <div className="categories__item" onClick={() => setOpen(!open)}>
         {item}
-        <FontAwesomeIcon
-          icon={faChevronDown}
-          className="categories__item__dropdown"
-        />
+        {subs.length ? (
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            className="categories__item__dropdown"
+          />
+        ) : null}
       </div>
 
       {open && subs?.length ? (
