@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./BasketSection.scss";
 import image from "../HomeSectionUp/image/ruchki.png";
 import buyImg from "../../assets/basket.png";
 import close from "../../assets/close.png";
-import { Link } from "react-router-dom";
 
 const BasketSection = () => {
 

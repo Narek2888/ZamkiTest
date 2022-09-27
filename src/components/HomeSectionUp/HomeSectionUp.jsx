@@ -93,7 +93,9 @@ const HomeSectionUp = () => {
               <div className="items__item__img">
                 <img src={item.img} alt="alt" />
               </div>
-              <div className="items__item__name">{name}</div>
+              <div className="items__item__name">
+                {name.length < 9 ? name : name.slice(0, 9) + "..."}
+              </div>
             </div>
           );
         })
@@ -117,7 +119,11 @@ const HomeSectionUp = () => {
                   <div className="items__item__img">
                     <img src={item.img} alt="item" />
                   </div>
-                  <div className="items__item__name">{items.name}</div>
+                  <div className="items__item__name">
+                    {item.name.length < 9
+                      ? item.name
+                      : item.name.slice(0, 9) + "..."}
+                  </div>
                 </div>
               </SwiperSlide>
             );

@@ -12,6 +12,12 @@
     font-size: 17px;
     position: relative;
     cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      background: #000000;
+      color: #ffffff;
+    }
 
     &__dropdown {
       position: absolute;
@@ -116,6 +122,12 @@
 
   &__item {
     cursor: pointer;
+
+    &:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+    
     &__dropdown {
       margin-right: 13px;
       transform: rotate(-90deg);
