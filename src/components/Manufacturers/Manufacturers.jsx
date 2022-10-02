@@ -2,22 +2,17 @@ import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import "./Manufacturers.scss";
 import Marquee from "react-fast-marquee";
+import { getData } from "../../utils";
 
 const Manufacturers = () => {
   const [manufacturers, setManufacturers] = useState([]);
   const [key, setKey] = useState(nanoid());
 
-  const getData = async () => {
-    const url = "https://zamki-strapi.codium.pro/api/brands?populate=*";
-    const data = await fetch(url).then((res) => res.json());
-    setManufacturers((prev) => {
-      const res = [...prev, ...data.data];
-      return [...res];
-    });
-  };
-
   useEffect(() => {
-    getData();
+    getData(
+      "https://zamki-strapi.codium.pro/api/brands?populate=*",
+      setManufacturers
+    );
     setKey(nanoid());
   }, []);
 
