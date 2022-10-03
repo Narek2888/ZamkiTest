@@ -3,23 +3,18 @@ import HomeCategories from "../components/HomeCategories/HomeCategories";
 import HomeSection from "../components/HomeSection/HomeSection";
 import Manufacturers from "../components/Manufacturers/Manufacturers";
 import Slider from "../components/Slider/Slider";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { getData } from "../utils";
 
 import "./Home.scss";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
 
-  const getData = async () => {
-    const url = "https://zamki-strapi.codium.pro/api/sliders";
-    const data = await fetch(url).then((res) => res.json());
-    setCategories(() => {
-      const res = [...data.data];
-      return [...res];
-    });
-  };
+  useDocumentTitle("Prozamki".concat(" | ", "Основная"));
 
   useEffect(() => {
-    getData();
+    getData("https://zamki-strapi.codium.pro/api/sliders", setCategories);
   }, []);
 
   return (

@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
 import closePng from "../../assets/close.png";
 import CategoriesItem from "./CategoriesItem";
-import loadingImg from "./loading.png";
 import "./HomeCategories.scss";
+import { getData } from "../../utils";
 
 const HomeCategories = ({ navRef, closeMenuRef }) => {
   const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const getData = async () => {
-    setLoading(true);
-    const url = "https://zamki-strapi.codium.pro/api/categories?populate=*";
-    const data = await fetch(url).then((res) => res.json());
-    setCategories((prev) => {
-      const res = [...prev, ...data.data];
-      return [...res];
-    });
-    setLoading(false);
-  };
 
   useEffect(() => {
-    getData();
+    getData(
+      "https://zamki-strapi.codium.pro/api/categories?populate=*",
+      setCategories
+    );
   }, []);
 
   const closeNavbar = () => {
@@ -35,8 +26,6 @@ const HomeCategories = ({ navRef, closeMenuRef }) => {
           <img src={closePng} alt="closeMenu" />
         </div>
       </div>
-
-      {loading && !categories.length && <img src={loadingImg} alt="loading" />}
 
       {categories.length
         ? categories.map((i) => {

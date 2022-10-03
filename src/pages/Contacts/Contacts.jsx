@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Contacts.scss";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,8 +11,23 @@ import {
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
 import Layout from "../../Layout/Layout";
 import Map from "./Map";
+import { getDataObj } from "../../utils";
 
 const Contacts = () => {
+  const [contacts, setContacts] = useState({});
+
+  useEffect(() => {
+    getDataObj("https://zamki-strapi.codium.pro/api/contact", setContacts);
+  }, []);
+
+  const {
+    address: addresses,
+    phoneNumber: phoneNumbers,
+    messageNumber: messageNumbers,
+    email: emails,
+  } = contacts;
+
+  console.log({ contacts });
   return (
     <Layout>
       <div className="contact">
@@ -23,34 +38,42 @@ const Contacts = () => {
             <div className="contact__section__discription__title">
               Адреса наших розничных магазинов (схемы проезда ниже):
             </div>
-            <div className="contact__section__discription__address">
-              <FontAwesomeIcon icon={faLocationDot} />
-              <div className="contact__section__discription__address__item">
-                <p>
-                  ТСЯ "Славянский мир" - магазин "А-11/6" замки, фурнитура и
-                  домофоны
-                </p>
-                <p> ТК "Конструктор" - магазин "Г-2.9" замки и фурнитура</p>
-                <p>
-                  ТСК "Молоток" - магазин "Б-12" замки, фурнитура, двери и
-                  домофоны
-                </p>
+            {addresses?.length ? (
+              <div className="contact__section__discription__address">
+                <FontAwesomeIcon icon={faLocationDot} />
+                <div className="contact__section__discription__address__item">
+                  {addresses?.map((item, idx) => {
+                    return <p key={idx}>{item}</p>;
+                  })}
+                </div>
               </div>
-            </div>
+            ) : null}
 
             <div className="contact__section__discription__contacts">
-              <div className="contact__section__discription__contacts__phone">
-                <FontAwesomeIcon icon={faPhone} />
-                <p>747-888-7777</p>
-              </div>
-              <div className="contact__section__discription__contacts__message">
-                <FontAwesomeIcon icon={faCommentDots} />
-                <p>747-244-8398</p>
-              </div>
-              <div className="contact__section__discription__contacts__mail">
-                <FontAwesomeIcon icon={faEnvelope} />
-                <p>order@почта,.com</p>
-              </div>
+              {phoneNumbers?.length ? (
+                <div className="contact__section__discription__contacts__phone">
+                  <FontAwesomeIcon icon={faPhone} />
+                  {phoneNumbers?.map((item, idx) => {
+                    return <p key={idx}>{item}</p>;
+                  })}
+                </div>
+              ) : null}
+              {messageNumbers?.length ? (
+                <div className="contact__section__discription__contacts__message">
+                  <FontAwesomeIcon icon={faCommentDots} />
+                  {messageNumbers.map((item, idx) => {
+                    return <p key={idx}>{item}</p>;
+                  })}
+                </div>
+              ) : null}
+              {emails?.length ? (
+                <div className="contact__section__discription__contacts__mail">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                  {emails?.map((item, idx) => {
+                    return <p key={idx}>{item}</p>;
+                  })}
+                </div>
+              ) : null}
             </div>
             <div className="contact__section__discription__map">
               <Map />
