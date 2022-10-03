@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Contacts.scss";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLocationDot,
-  faPhone,
-  faCommentDots,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faLocationDot,
+//   faPhone,
+//   faCommentDots,
+//   faEnvelope,
+// } from "@fortawesome/free-solid-svg-icons";
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
 import Layout from "../../Layout/Layout";
 import Map from "./Map";
@@ -40,7 +40,7 @@ const Contacts = () => {
             </div>
             {addresses?.length ? (
               <div className="contact__section__discription__address">
-                <FontAwesomeIcon icon={faLocationDot} />
+                {/* <FontAwesomeIcon icon={faLocationDot} /> */}
                 <div className="contact__section__discription__address__item">
                   {addresses?.map((item, idx) => {
                     return <p key={idx}>{item}</p>;
@@ -52,7 +52,7 @@ const Contacts = () => {
             <div className="contact__section__discription__contacts">
               {phoneNumbers?.length ? (
                 <div className="contact__section__discription__contacts__phone">
-                  <FontAwesomeIcon icon={faPhone} />
+                  {/* <FontAwesomeIcon icon={faPhone} /> */}
                   {phoneNumbers?.map((item, idx) => {
                     return <p key={idx}>{item}</p>;
                   })}
@@ -60,7 +60,7 @@ const Contacts = () => {
               ) : null}
               {messageNumbers?.length ? (
                 <div className="contact__section__discription__contacts__message">
-                  <FontAwesomeIcon icon={faCommentDots} />
+                  {/* <FontAwesomeIcon icon={faCommentDots} /> */}
                   {messageNumbers.map((item, idx) => {
                     return <p key={idx}>{item}</p>;
                   })}
@@ -68,7 +68,7 @@ const Contacts = () => {
               ) : null}
               {emails?.length ? (
                 <div className="contact__section__discription__contacts__mail">
-                  <FontAwesomeIcon icon={faEnvelope} />
+                  {/* <FontAwesomeIcon icon={faEnvelope} /> */}
                   {emails?.map((item, idx) => {
                     return <p key={idx}>{item}</p>;
                   })}
