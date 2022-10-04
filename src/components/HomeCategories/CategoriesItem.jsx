@@ -26,10 +26,10 @@ const CategoriesItem = ({ attributes }) => {
             const { subcategory_rus } = i.attributes;
             return (
               <div className="subcategory__item" key={i.id}>
-                <FontAwesomeIcon
+                {/* <FontAwesomeIcon
                   icon={faChevronDown}
                   className="subcategory__item__dropdown"
-                />
+                /> */}
                 {subcategory_rus}
               </div>
             );
