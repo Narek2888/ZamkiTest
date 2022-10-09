@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Contacts.scss";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faLocationDot,
-//   faPhone,
-//   faCommentDots,
-//   faEnvelope,
-// } from "@fortawesome/free-solid-svg-icons";
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
 import Layout from "../../Layout/Layout";
-import Map from "./Map";
 import { getDataObj } from "../../utils";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState({});
 
-  useEffect(() => {
-    getDataObj("https://zamki-strapi.codium.pro/api/contact", setContacts);
-  }, []);
+  // useEffect(() => {
+  //   getDataObj("https://zamki-strapi.codium.pro/api/contact", setContacts);
+  // }, []);
 
   const {
     address: addresses,
@@ -75,9 +67,7 @@ const Contacts = () => {
                 </div>
               ) : null}
             </div>
-            <div className="contact__section__discription__map">
-              <Map />
-            </div>
+            <div className="contact__section__discription__map"></div>
           </div>
         </div>
         <Manufacturers />
