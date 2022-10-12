@@ -2,64 +2,6 @@
   &__section {
     display: flex;
     gap: 40px;
-    margin-bottom: 40px;
-
-    &__discription {
-      &__name {
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 26px;
-        letter-spacing: 0.01em;
-        text-transform: uppercase;
-      }
-
-      &__title {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 19px;
-        text-transform: capitalize;
-        padding: 14px 0 50px;
-      }
-
-      &__address {
-        display: flex;
-        gap: 10px;
-
-        &__item {
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 28px;
-          text-transform: capitalize;
-        }
-      }
-
-      &__contacts {
-        margin-top: 20px;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 28px;
-
-        &__phone,
-        &__message,
-        &__mail {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-      }
-
-      &__map {
-        margin-top: 80px;
-
-        & > img {
-          width: 100%;
-        }
-      }
-    }
+    margin: 20px 0 40px;
   }
-}
-
-.leaflet-container {
-  height: 400px;
-  width: 800px;
 }

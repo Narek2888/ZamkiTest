@@ -25,7 +25,7 @@
       border: 1px solid #cccccc;
 
       &__img {
-        > img {
+        >img {
           width: 100%;
           height: 100%;
         }
@@ -74,5 +74,24 @@
         }
       }
     }
+  }
+}
+
+.news__page__categories {
+  grid-template-columns: auto auto auto auto;
+  margin-bottom: 42px;
+
+  @media screen and (min-width: 1920px) {
+    grid-template-columns: auto auto auto auto auto;
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media screen and (max-width: 426px) {
+    grid-template-columns: auto auto;
+  }
+  @media screen and (max-width: 320px) {
+    grid-template-columns: auto;
   }
 }
