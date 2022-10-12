@@ -2,7 +2,7 @@ import React from "react";
 import image from "./image/petli.png";
 import "./HomeSectionDown.scss";
 
-const HomeSectionDown = () => {
+const HomeSectionDown = ({ grid }) => {
   const categories = [
     {
       name: "КРЮЧКИ",
@@ -63,7 +63,11 @@ const HomeSectionDown = () => {
     <div className="homeCategories">
       <div className="homeCategories__text">КАТЕГОРИИ</div>
 
-      <div className="homeCategories__categories">
+      <div
+        className={`homeCategories__categories ${
+          grid ? "news__page__categories" : ""
+        }`}
+      >
         {categories.map((item, index) => {
           const { img, name, patcat, country } = item;
           return (

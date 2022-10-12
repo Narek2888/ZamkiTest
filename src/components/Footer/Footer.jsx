@@ -11,10 +11,10 @@ const Footer = () => {
   }, []);
 
   const {
-    column_1: column__1,
-    column_2: column__2,
-    column_3: column__3,
-    column_4: column__4,
+    column_1,
+    column_2,
+    column_3,
+    column_4,
   } = products;
 
   return (
@@ -24,9 +24,9 @@ const Footer = () => {
           <div className="footer__up__contact__logo">
             <img src={logo} alt="footer_logo" />
           </div>
-          {column__1?.length ? (
+          {column_1?.length ? (
             <div className="footer__up__contact__item">
-              {column__1?.map((item, index) => {
+              {column_1?.map((item, index) => {
                 return <div key={index}>{item}</div>;
               })}
             </div>
@@ -37,24 +37,24 @@ const Footer = () => {
           <div className="footer__up__products__text">ПРОДУКЦИЯ</div>
 
           <div className="footer__up__products__items">
-            {column__2?.length ? (
+            {column_2?.length ? (
               <div className="footer__up__products__items__column2">
-                {column__2?.map((item, index) => {
+                {column_2?.map((item, index) => {
                   return <div key={index}>{item}</div>;
                 })}
               </div>
             ) : null}
-            {column__3?.length ? (
+            {column_3?.length ? (
               <div className="footer__up__products__items__column3">
-                {column__3?.map((item, index) => {
+                {column_3?.map((item, index) => {
                   return <div key={index}>{item}</div>;
                 })}
               </div>
             ) : null}
 
-            {column__4?.length ? (
+            {column_4?.length ? (
               <div className="footer__up__products__items__column4">
-                {column__4?.map((item, index) => {
+                {column_4?.map((item, index) => {
                   return <div key={index}>{item}</div>;
                 })}
               </div>

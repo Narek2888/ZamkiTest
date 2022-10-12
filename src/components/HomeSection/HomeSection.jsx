@@ -4,7 +4,7 @@ import HomeSectionUp from "../HomeSectionUp/HomeSectionUp";
 import HomeSectionDown from "../HomeSectionDown/HomeSectionDown";
 import image from "./image/ruchki.png";
 
-const HomeSection = () => {
+const HomeSection = ({grid}) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const items = [
     {
@@ -84,7 +84,7 @@ const HomeSection = () => {
         <div>НОВИНКИ</div>
       </div>
       <HomeSectionUp items={items} handleSelect={handleSelect} />
-      <HomeSectionDown />
+      <HomeSectionDown  grid={grid}/>
     </div>
   );
 };
