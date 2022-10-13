@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { useMemo } from "react";
-import { Categories, Contacts, Home, New } from "../pages";
+import { Contacts, Home, New } from "../pages";
 import Basket from "../pages/Basket/Basket";
 import Paying from "../pages/Paying/Paying";
 import MakeAnOrder from "../components/BasketSection/MakeAnOrder/MakeAnOrder";
@@ -20,13 +20,6 @@ export const routes = [
     path: "/about",
     name: "about",
     component: About,
-  },
-
-  //   optional
-  {
-    path: "/categories",
-    name: "categories",
-    component: Categories,
   },
 
   {

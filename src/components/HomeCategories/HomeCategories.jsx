@@ -8,10 +8,10 @@ const HomeCategories = ({ navRef, closeMenuRef }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    // getData(
-    //   "https://zamki-strapi.codium.pro/api/categories?populate=*",
-    //   setCategories
-    // );
+    getData(
+      "https://zamki-strapi.codium.pro/api/categories?populate=*",
+      setCategories
+    );
   }, []);
 
   const closeNavbar = () => {

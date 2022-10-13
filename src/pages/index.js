@@ -1,5 +1,4 @@
 import About from "./About/About";
-import Categories from "./Categories";
 import Contacts from "./Contacts/Contacts";
 import Delivery from "./Delivery/Delivery";
 import Home from "./Home";
@@ -8,14 +7,4 @@ import Partners from "./Partners/Partners";
 import Paying from "./Paying/Paying";
 import Basket from "./Basket/Basket";
 
-export {
-  About,
-  Categories,
-  Contacts,
-  Delivery,
-  Home,
-  New,
-  Partners,
-  Paying,
-  Basket,
-};
+export { About, Contacts, Delivery, Home, New, Partners, Paying, Basket };

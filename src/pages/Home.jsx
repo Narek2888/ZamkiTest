@@ -20,11 +20,11 @@ const Home = () => {
   return (
     <>
       <Slider categories={categories} />
-
       <div className="main">
         <div className="homePage">
-          {/* <HomeCategories /> */}
-          <HomeSection />
+          <HomeCategories />
+
+          <HomeSection  />
         </div>
         <Manufacturers />
       </div>

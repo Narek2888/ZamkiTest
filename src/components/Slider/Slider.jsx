@@ -14,8 +14,14 @@ const FirstELement = ({ item }) => {
       className="first__slide"
       style={{ backgroundImage: `url(${background_image})` }}
     >
-      <span className="first__slide__title">{title}</span>
-      <span className="first__slide__txt">{text}</span>
+      <div
+        className="first__slide__title"
+        dangerouslySetInnerHTML={{ __html: title }}
+      ></div>
+      <div
+        className="first__slide__txt"
+        dangerouslySetInnerHTML={{ __html: text }}
+      ></div>
       {button ? (
         <button className="first__slide__btn">Подробности акции</button>
       ) : null}

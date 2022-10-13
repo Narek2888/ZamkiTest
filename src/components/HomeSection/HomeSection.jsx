@@ -4,7 +4,7 @@ import HomeSectionUp from "../HomeSectionUp/HomeSectionUp";
 import HomeSectionDown from "../HomeSectionDown/HomeSectionDown";
 import image from "./image/ruchki.png";
 
-const HomeSection = ({grid}) => {
+const HomeSection = ({ grid, showCarousel = false }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const items = [
     {
@@ -79,12 +79,17 @@ const HomeSection = ({grid}) => {
 
   return (
     <div className="homeSection">
-      <div className="homeSection__categories__news">
-        <div>КАТЕГОРИИ</div>
-        <div>НОВИНКИ</div>
-      </div>
-      <HomeSectionUp items={items} handleSelect={handleSelect} />
-      <HomeSectionDown  grid={grid}/>
+      {showCarousel && (
+        <>
+          <div className="homeSection__categories__news">
+            <div>КАТЕГОРИИ</div>
+            <div>НОВИНКИ</div>
+          </div>
+
+          <HomeSectionUp items={items} handleSelect={handleSelect} />
+        </>
+      )}
+      <HomeSectionDown grid={grid} />
     </div>
   );
 };
