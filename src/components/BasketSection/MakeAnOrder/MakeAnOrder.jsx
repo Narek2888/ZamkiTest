@@ -18,12 +18,12 @@ const MakeAnOrder = () => {
             <div className="makeAnOrder__up__section__text">Оформить заказ</div>
             <div className="makeAnOrder__up__section__type">
               <div>Товары в корзине:</div>
-              <div className="makeAnOrder__up__section__type__done">
+              <button className="makeAnOrder__up__section__type__done">
                 Готовые к заказу
-              </div>
-              <div className="makeAnOrder__up__section__type__delayed">
+              </button>
+              <button className="makeAnOrder__up__section__type__delayed">
                 Отложенные
-              </div>
+              </button>
             </div>
 
             <div className="makeAnOrder__up__section__input">

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import routes from "./routes.json";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
 import basketPng from "../../assets/basket.png";
 import burgerbtn from "../../assets/burger.png";
 import HomeCategories from "../HomeCategories/HomeCategories";
@@ -54,6 +54,10 @@ const Navbar = () => {
           </div>
 
           <div className="header__up__right__basket">
+            <div className="header__up__right__basket__hoverBox">
+              2 товара <br />
+               30 510 руб.
+            </div>
             <Link to="/karzina">
               <img src={basketPng} alt="basket" />
             </Link>

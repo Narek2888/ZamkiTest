@@ -36,6 +36,19 @@
         font-size: 16px;
         line-height: 19px;
         cursor: pointer;
+        transition: 0.5s;
+
+        &:hover {
+          background: #000000;
+          color: #ffffff;
+          border: 1px solid #9F9F9F;
+        }
+
+        &:focus {
+          color: #000000;
+          background: #DDDDDD;
+          border: 1px solid #9F9F9F;
+        }
 
         @media screen and (max-width: 1024px) {
           width: 120px;
@@ -57,7 +70,7 @@
         text-transform: capitalize;
         margin: 97px 0 46px;
 
-        @media screen and (max-width: 426px){
+        @media screen and (max-width: 426px) {
           margin: 24px 0;
         }
       }
@@ -66,7 +79,7 @@
         display: flex;
         gap: 40px;
 
-        @media screen and (max-width: 426px){
+        @media screen and (max-width: 426px) {
           flex-direction: column;
         }
 
@@ -74,12 +87,18 @@
           width: 250px;
           background: #ffffff;
           border: 1px solid #cccccc;
+          cursor: pointer;
+          transition: 0.5s;
+
+          &:hover {
+            border: 1px solid #000000;
+          }
 
           &__img {
             width: 100%;
             height: 145px;
 
-            & > img {
+            &>img {
               width: 100%;
               height: 100%;
             }
@@ -88,14 +107,14 @@
           &__discription {
             padding: 17px 19px;
 
-            & > h4 {
+            &>h4 {
               font-weight: 500;
               font-size: 16px;
               line-height: 19px;
               text-transform: capitalize;
             }
 
-            & > p {
+            &>p {
               font-weight: 300;
               font-size: 16px;
               line-height: 19px;
@@ -168,6 +187,13 @@
         display: flex;
         position: relative;
         height: 220px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: 0.5s;
+
+        &:hover {
+          border: 1px solid #000000;
+        }
 
         @media screen and (max-width: 426px) {
           height: 173px;
@@ -267,7 +293,7 @@
               font-size: 9px;
             }
 
-            & > input {
+            &>input {
               width: 77px;
               height: 32px;
               padding-left: 17px;
@@ -300,18 +326,25 @@
             bottom: 5px;
             right: 10px;
 
+            &:hover {
+              color: #16ced4;
+            }
+
+            &:hover &__buyImg {
+              background: url(../../assets/basketBlue.png) no-repeat;
+            }
+
             &__text {
               cursor: pointer;
             }
 
             &__buyImg {
               width: 28px;
+              height: 28px;
               margin-left: 6px;
               cursor: pointer;
-
-              & > img {
-                width: 100%;
-              }
+              background: url(../../assets/basket.png) no-repeat;
+              background-size: contain;
             }
           }
         }
@@ -319,15 +352,6 @@
         &__img {
           width: 50%;
           // height: 250px;
-
-          @media screen and (max-width: 426px) {
-            // height: 173px;
-          }
-
-          > img {
-            width: 100%;
-            height: 100%;
-          }
         }
       }
     }

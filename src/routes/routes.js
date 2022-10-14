@@ -5,7 +5,7 @@ import { Categories, Contacts, Home, New } from "../pages";
 import Basket from "../pages/Basket/Basket";
 import Paying from "../pages/Paying/Paying";
 import MakeAnOrder from "../components/BasketSection/MakeAnOrder/MakeAnOrder";
-import Partners from "../pages/Partners/Partners";
+import ManufacturerPage from "../pages/Partners/ManufacturerPage";
 import About from "../pages/About/About";
 import Delivery from "../pages/Delivery/Delivery";
 
@@ -38,7 +38,7 @@ export const routes = [
   {
     path: "/partners",
     name: "partners",
-    component: Partners,
+    component: ManufacturerPage,
   },
 
   {

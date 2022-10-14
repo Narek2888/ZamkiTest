@@ -2,11 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./BasketSection.scss";
 import image from "../HomeSectionUp/image/ruchki.png";
-import buyImg from "../../assets/basket.png";
-import close from "../../assets/close.png";
+// import buyImg from "../../assets/basket.png";
 
 const BasketSection = () => {
-
   const basketItem = [
     {
       name: "Дверные ручки-защелки",
@@ -39,8 +37,10 @@ const BasketSection = () => {
       <div className="basketSection__text">Корзина</div>
       <div className="basketSection__type">
         <div>Товары в корзине:</div>
-        <div className="basketSection__type__done">Готовые к заказу </div>
-        <div className="basketSection__type__delayed">Отложенные ({pcs}) </div>
+        <button className="basketSection__type__done">Готовые к заказу </button>
+        <button className="basketSection__type__delayed">
+          Отложенные ({pcs}){" "}
+        </button>
       </div>
 
       <div className="basketSection__items">
@@ -51,9 +51,7 @@ const BasketSection = () => {
 
           return (
             <div className="basketSection__items__item" key={index}>
-              <div className="basketSection__items__item__close">
-                <img src={close} alt="deleteItem" />
-              </div>
+              <div className="basketSection__items__item__close"></div>
               <div className="basketSection__items__item__img">
                 <img src={image} alt="" />
               </div>
@@ -77,9 +75,7 @@ const BasketSection = () => {
                   <div className="basketSection__items__item__description__postpone__text">
                     Отложить
                   </div>
-                  <div className="basketSection__items__item__description__postpone__buyImg">
-                    <img src={buyImg} alt="buyImg" />
-                  </div>
+                  <div className="basketSection__items__item__description__postpone__buyImg"></div>
                 </div>
               </div>
             </div>
@@ -90,13 +86,10 @@ const BasketSection = () => {
         <div className="basketSection__items__buy__total">
           Итого: {totalPrice} руб.
         </div>
-      
-      <Link  to="/karzina/aformitzakaz">
-      <div
-          className="basketSection__items__buy__order" >
-          Оформить заказ
-        </div>
-      </Link>  
+
+        <Link to="/karzina/aformitzakaz">
+          <div className="basketSection__items__buy__order">Оформить заказ</div>
+        </Link>
       </div>
     </div>
   );

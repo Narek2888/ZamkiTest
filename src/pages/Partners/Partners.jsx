@@ -71,8 +71,8 @@ const Partners = () => {
 
           <div className="partners__section__type">
             <div>Сортировать </div>
-            <div className="partners__section__type__done">По типу</div>
-            <div className="partners__section__type__delayed">Названию</div>
+            <button className="partners__section__type__done">По типу</button>
+            <button className="partners__section__type__delayed">Названию</button>
           </div>
 
           <div className="partners__section__items">
@@ -105,7 +105,7 @@ const Partners = () => {
                         В корзину
                       </div>
                       <div className="partners__section__items__item__description__postpone__buyImg">
-                        <img src={buyImg} alt="buyImg" />
+                        {/* <img src={buyImg} alt="buyImg" /> */}
                       </div>
                     </div>
                   </div>
