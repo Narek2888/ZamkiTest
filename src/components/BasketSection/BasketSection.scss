@@ -40,6 +40,19 @@
       font-size: 16px;
       line-height: 19px;
       cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        background: #000000;
+        border: 1px solid #9F9F9F;
+        color: #ffffff;
+      }
+
+      &:focus {
+        background: #DDDDDD;
+        border: 1px solid #9F9F9F;
+        color: #000000;
+      }
 
       @media screen and (max-width: 1024px) {
         width: 120px;
@@ -60,6 +73,7 @@
     @media screen and (max-width: 768px) {
       gap: 20px;
     }
+
     @media screen and (max-width: 426px) {
       grid-template-columns: auto;
     }
@@ -112,6 +126,13 @@
       display: flex;
       position: relative;
       height: 220px;
+      border: 1px solid #cccccc;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        border: 1px solid #000000;
+      }
 
       @media screen and (max-width: 426px) {
         height: 173px;
@@ -125,12 +146,18 @@
         width: 25px;
         height: 25px;
         position: absolute;
-        top: -7px;
-        right: -3px;
+        top: -8px;
+        right: -8px;
         cursor: pointer;
         z-index: 1;
+        background: url(../../assets/close.png) no-repeat;
+        background-size: contain;
 
-        > img {
+        &:hover {
+          background: url(../../assets/closeRed.png) no-repeat;
+        }
+
+        >img {
           width: 100%;
           height: 100%;
         }
@@ -142,12 +169,12 @@
         flex-direction: column;
         padding: 13px 13px 2px;
         background: #ffffff;
-        border: 1px solid #cccccc;
         position: relative;
 
         @media screen and (max-width: 426px) {
           padding: 20px 23px 0px;
         }
+
         @media screen and (max-width: 426px) {
           padding: 11px 11px 0px;
         }
@@ -161,10 +188,12 @@
           @media screen and (max-width: 768px) {
             line-height: 18px;
           }
+
           @media screen and (max-width: 426px) {
             font-size: 11px;
             line-height: 13px;
           }
+
           @media screen and (max-width: 375px) {
             // font-size: 11px;
             line-height: 18px;
@@ -181,10 +210,12 @@
           @media screen and (max-width: 768px) {
             line-height: 13px;
           }
+
           @media screen and (max-width: 426px) {
             font-size: 11px;
             line-height: 18px;
           }
+
           @media screen and (max-width: 375px) {
             font-size: 9px;
             line-height: 11px;
@@ -202,11 +233,13 @@
             font-size: 24px;
             margin: 9px 0;
           }
+
           @media screen and (max-width: 426px) {
             font-size: 22px;
             font-size: 18px;
             margin: 10px 0;
           }
+
           @media screen and (max-width: 375px) {
             // font-size: 18px;
             margin: 3px 0;
@@ -225,7 +258,7 @@
             font-size: 9px;
           }
 
-          > input {
+          >input {
             width: 77px;
             height: 32px;
             padding-left: 17px;
@@ -258,34 +291,31 @@
           bottom: 5px;
           right: 10px;
 
+          &:hover {
+            color: #16ced4;
+          }
+
+          &:hover &__buyImg {
+            background: url(../../assets/basketBlue.png) no-repeat;
+          }
+
           &__text {
             cursor: pointer;
           }
 
           &__buyImg {
             width: 28px;
+            height: 28px;
             margin-left: 6px;
             cursor: pointer;
-
-            > img {
-              width: 100%;
-            }
+            background: url(../../assets/basket.png) no-repeat;
+            background-size: contain;
           }
         }
       }
 
       &__img {
         width: 50%;
-        // height: 250px;
-
-        @media screen and (max-width: 426px) {
-          // height: 173px;
-        }
-
-        > img {
-          width: 100%;
-          height: 100%;
-        }
       }
     }
   }

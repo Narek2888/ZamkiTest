@@ -31,6 +31,17 @@
 
 .marquee {
   min-width: auto !important;
+  
+  .carusels {
+    height: 100%;
+    padding: 0 10px;
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  .carusels:hover {
+    border: 5px solid #16CED4;
+  }
 }
 
 @media screen and (max-width: 426px) {
