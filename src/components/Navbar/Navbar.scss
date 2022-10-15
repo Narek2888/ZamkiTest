@@ -20,7 +20,7 @@
         cursor: pointer;
         display: none;
 
-        >img {
+        > img {
           width: 100%;
           height: 100%;
         }
@@ -64,6 +64,15 @@
           color: #ffffff;
           text-align: center;
           line-height: 24px;
+        }
+
+        @media screen and (max-width: 426px) {
+          width: 17px;
+          height: 17px;
+          font-size: 11px;
+          line-height: 17px;
+          top: -5px;
+          right: -7px;
         }
 
         &:hover &__hoverBox {
@@ -182,7 +191,7 @@
     &__burger__logo {
       width: 56px;
 
-      >a>img {
+      > a > img {
         width: 100%;
       }
     }
@@ -190,7 +199,7 @@
     &__right__basket {
       width: 35px;
 
-      >a>img {
+      > a > img {
         width: 100%;
       }
     }

@@ -1,37 +1,55 @@
 .manufacturerPage {
+  display: flex;
+  gap: 30px;
+
+  &__items {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 0;
 
-    &__items {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        padding: 20px 0;
-
-        @media screen and (max-width: 376px) {
-            justify-content: center;
-        }
-
-        &__item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            border: 5px solid transparent;
-            padding: 0 10px;
-            background: #ffffff;
-            height: 170px;
-            cursor: pointer;
-            transition: 0.5s;
-
-            &:hover {
-                border: 5px solid #16CED4;
-            }
-
-            &__img {
-                width: 110px;
-            }
-        }
+    @media screen and (max-width: 376px) {
+      justify-content: center;
     }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      border: 5px solid transparent;
+      padding: 0 10px;
+      background: #ffffff;
+      height: 125px;
+      width: 165px;
+      cursor: pointer;
+      transition: 0.5s;
+
+      @media screen and (max-width: 768px) {
+        width: 150px;
+      }
+      @media screen and (max-width: 426px) {
+        width: 115px;
+        height: 100px;
+      }
+
+      &:hover {
+        border: 5px solid #16ced4;
+      }
+
+      &__img {
+        width: 110px;
+        width: 85px;
+
+        @media screen and (max-width: 768px) {
+          width: 80px;
+        }
+        
+        @media screen and (max-width: 768px) {
+          width: 65px;
+        }
+      }
+    }
+  }
 }

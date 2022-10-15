@@ -23,7 +23,6 @@ const Home = () => {
       <div className="main">
         <div className="homePage">
           <HomeCategories />
-
           <HomeSection  />
         </div>
         <Manufacturers />

@@ -3,7 +3,6 @@ import "./Partners.scss";
 import image from "../../components/HomeSectionUp/image/ruchki.png";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
-import buyImg from "../../assets/basket.png";
 import Layout from "../../Layout/Layout";
 
 const Partners = () => {

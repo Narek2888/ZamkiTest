@@ -25,13 +25,13 @@ const CategoriesItem = ({ attributes }) => {
           {subs.map((i) => {
             const { subcategory_rus } = i.attributes;
             return (
-              <div className="subcategory__item" key={i.id}>
-                {/* <FontAwesomeIcon
+              <button className="subcategory__item" key={i.id}>
+                <FontAwesomeIcon
                   icon={faChevronDown}
                   className="subcategory__item__dropdown"
-                /> */}
+                />
                 {subcategory_rus}
-              </div>
+              </button>
             );
           })}
         </div>
