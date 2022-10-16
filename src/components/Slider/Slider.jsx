@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "./Slider.scss";
+import Loader from "react-loader-spinner";
 
 const FirstELement = ({ item }) => {
   const { background_image, button, text, title } = item.attributes;
@@ -33,27 +34,37 @@ const Slider = ({ categories }) => {
   return (
     <div className="slideshow">
       <div className="slideshowSlider">
-        <Swiper
-          centeredSlides={true}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay]}
-          className="mySwiper"
-          zoom={false}
-          loop={true}
-        >
-          {categories.map((item) => {
-            return (
-              <SwiperSlide key={item.id}>
-                <div className="slide">
-                  <FirstELement item={item} />
-                </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        {categories.length ? (
+          <Swiper
+            centeredSlides={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            className="mySwiper"
+            zoom={false}
+            loop={true}
+          >
+            {categories.map((item) => {
+              return (
+                <SwiperSlide key={item.id}>
+                  <div className="slide">
+                    <FirstELement item={item} />
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        ) : (
+          <Loader
+            type="TailSpin"
+            color="#16CED4"
+            height={50}
+            width={50}
+            timeout={10000}
+          />
+        )}
       </div>
     </div>
   );

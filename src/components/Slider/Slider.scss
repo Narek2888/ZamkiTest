@@ -7,6 +7,13 @@
 .slideshowSlider {
   white-space: nowrap;
   transition: ease 1000ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > *svg {
+    margin-top: 20px;
+  }
 }
 
 .slide {

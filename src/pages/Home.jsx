@@ -10,7 +10,6 @@ import "./Home.scss";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
-
   useDocumentTitle("Prozamki".concat(" | ", "Основная"));
 
   useEffect(() => {
@@ -23,7 +22,7 @@ const Home = () => {
       <div className="main">
         <div className="homePage">
           <HomeCategories />
-          <HomeSection  />
+          <HomeSection />
         </div>
         <Manufacturers />
       </div>

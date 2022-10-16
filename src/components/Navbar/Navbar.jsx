@@ -6,10 +6,15 @@ import logo from "../../assets/logo.svg";
 import basketPng from "../../assets/basket.png";
 import burgerbtn from "../../assets/burger.png";
 import HomeCategories from "../HomeCategories/HomeCategories";
+import { useDispatch, useSelector } from "react-redux";
+import { searchHandler } from "../../redux/features/shop/shopSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const { cartAmount, totalAmount, searchInput } = useSelector(
+    (state) => state.shop
+  );
   const [size, setSize] = useState(window.innerWidth);
-
   const navRef = useRef();
   const closeMenuRef = useRef();
 
@@ -25,6 +30,10 @@ const Navbar = () => {
   const showNavbar = () => {
     navRef.current.classList.toggle("width");
     closeMenuRef.current.classList.add("closeMenu");
+  };
+
+  const onSearchHandler = (e) => {
+    dispatch(searchHandler(e.target.value));
   };
 
   return (
@@ -50,14 +59,19 @@ const Navbar = () => {
               type="text"
               className="header__up__right__input__text"
               placeholder="Поиск"
+              value={searchInput}
+              onChange={onSearchHandler}
             />
           </div>
 
           <div className="header__up__right__basket">
-            <div className="header__up__right__basket__hoverBox">
-              2 товара <br />
-               30 510 руб.
-            </div>
+            {cartAmount > 0 ? <div className="circle">{cartAmount}</div> : null}
+            {cartAmount > 0 ? (
+              <div className="header__up__right__basket__hoverBox">
+                {cartAmount} товара <br />
+                {totalAmount} рублей
+              </div>
+            ) : null}
             <Link to="/karzina">
               <img src={basketPng} alt="basket" />
             </Link>

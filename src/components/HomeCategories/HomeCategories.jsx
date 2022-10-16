@@ -1,25 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Loader from "react-loader-spinner";
+import { useSelector } from "react-redux";
 import closePng from "../../assets/close.png";
 import CategoriesItem from "./CategoriesItem";
 import "./HomeCategories.scss";
-import { getData } from "../../utils";
 
 const HomeCategories = ({ navRef, closeMenuRef }) => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    getData(
-      "https://zamki-strapi.codium.pro/api/categories?populate=*",
-      setCategories
-    );
-  }, []);
+  const { categories } = useSelector((state) => state.shop);
 
   const closeNavbar = () => {
     navRef.current.classList.remove("width");
   };
 
   return (
-    <div ref={navRef} className={"categories"}>
+    <div ref={navRef} className="categories">
       <div ref={closeMenuRef} className={"hide"}>
         <div className="text">КАТЕГОРИИ</div>
         <div className="close" onClick={closeNavbar}>
@@ -27,12 +21,20 @@ const HomeCategories = ({ navRef, closeMenuRef }) => {
         </div>
       </div>
 
-      {categories.length
-        ? categories.map((i) => {
-            const { id, attributes } = i;
-            return <CategoriesItem attributes={attributes} id={id} key={id} />;
-          })
-        : null}
+      {categories.length ? (
+        categories.map((i) => {
+          const { id, attributes } = i;
+          return <CategoriesItem attributes={attributes} id={id} key={id} />;
+        })
+      ) : (
+        <Loader
+          type="TailSpin"
+          color="#16CED4"
+          height={50}
+          width={50}
+          timeout={10000}
+        />
+      )}
     </div>
   );
 };

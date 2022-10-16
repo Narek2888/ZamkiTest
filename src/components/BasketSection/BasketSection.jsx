@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./BasketSection.scss";
 import image from "../HomeSectionUp/image/ruchki.png";
+import { useSelector } from "react-redux";
 // import buyImg from "../../assets/basket.png";
 
 const BasketSection = () => {
+  const { totalAmount } = useSelector((state) => state.shop);
+
   const basketItem = [
     {
       name: "Дверные ручки-защелки",
@@ -30,7 +33,6 @@ const BasketSection = () => {
   ];
 
   let pcs = basketItem.length;
-  let totalPrice = 0;
 
   return (
     <div className="basketSection">
@@ -46,8 +48,6 @@ const BasketSection = () => {
       <div className="basketSection__items">
         {basketItem.map((item, index) => {
           const { name, model, material, price, image } = item;
-
-          totalPrice += price;
 
           return (
             <div className="basketSection__items__item" key={index}>
@@ -84,7 +84,7 @@ const BasketSection = () => {
       </div>
       <div className="basketSection__items__buy">
         <div className="basketSection__items__buy__total">
-          Итого: {totalPrice} руб.
+          Итого: {totalAmount} руб.
         </div>
 
         <Link to="/karzina/aformitzakaz">
