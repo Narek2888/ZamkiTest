@@ -134,14 +134,15 @@
       padding: 7px 0;
       color: #ffffff;
 
-      transition: 0.7s;
-
-      &:hover,
-      &:focus {
+      &:hover {
         color: #000000;
       }
     }
   }
+}
+
+.is-active {
+  color: #000000;
 }
 
 @media screen and (max-width: 1024px) {

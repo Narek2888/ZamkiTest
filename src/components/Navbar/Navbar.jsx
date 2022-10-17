@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Navbar.scss";
 import routes from "./routes.json";
 import logo from "../../assets/logo.svg";
@@ -84,13 +84,14 @@ const Navbar = () => {
           appRoutes.map((route, index) => {
             const { name, path } = route;
             return (
-              <Link
+              <NavLink
+                activeClassName="is-active"
                 className="header__down__item"
                 key={`${name}-${path}-${index}`}
                 to={path}
               >
                 {name}
-              </Link>
+              </NavLink>
             );
           })}
       </div>
