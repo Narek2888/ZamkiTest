@@ -4,6 +4,11 @@
     padding: 45px 300px;
     gap: 130px;
 
+    @media screen and (max-width: 1024px) {
+      align-items: flex-start;
+      gap: 30px;
+    }
+
     &__contact {
       display: flex;
       flex-direction: column;
@@ -13,6 +18,13 @@
 
       &__logo {
         width: 146px;
+
+        @media screen and (max-width: 1024px) {
+          width: 120px;
+        }
+        @media screen and (max-width: 768px) {
+          width: 95px;
+        }
 
         > img {
           width: 100%;
@@ -25,11 +37,16 @@
         line-height: 25px;
         letter-spacing: 0.01em;
         cursor: pointer;
+
+        @media screen and (max-width: 768px) {
+          font-size: 11px;
+          line-height: 18px;
+        }
       }
     }
 
     &__products {
-      width: 700px;
+      // width: 700px;
       display: flex;
       flex-direction: column;
       gap: 50px;
@@ -42,27 +59,29 @@
       }
 
       &__items {
-        height: 180px;
+        // height: 180px;
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+        // flex-direction: column;
+        // flex-wrap: wrap;
         gap: 0 20px;
         line-height: 35px;
         font-size: 14px;
 
+        @media screen and (max-width: 685px) {
+          flex-direction: column;
+        }
+
         &__column2,
         &__column3,
         &__column4 {
-          &>div {
+          & > div {
             cursor: pointer;
-          
+
             &:hover {
               text-decoration: underline;
             }
           }
         }
-
-
       }
     }
   }
@@ -99,7 +118,7 @@
 @media screen and (max-width: 768px) {
   .footer__up {
     padding: 45px 40px;
-    gap: 60px;
+    gap: 35px;
 
     &__contact {
       gap: 25px;
@@ -122,7 +141,7 @@
 @media screen and (max-width: 426px) {
   .footer__up {
     padding: 20px 18px;
-    gap: 41px;
+    gap: 25px;
 
     &__contact {
       gap: 20px;
@@ -147,10 +166,10 @@
       }
 
       &__items {
-        height: auto;
+        // height: auto;
         font-size: 11px;
         line-height: 20px;
-
+        flex-direction: column;
       }
     }
   }
@@ -170,7 +189,6 @@
     gap: 40px;
 
     &__products__items {
-
       &__item {
         line-height: 15px;
       }

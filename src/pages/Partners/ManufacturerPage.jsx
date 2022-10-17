@@ -3,6 +3,7 @@ import "./ManufacturerPage.scss";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import Layout from "../../Layout/Layout";
 import { useSelector } from "react-redux";
+import Path from "../../components/Path/Path";
 
 const ManufacturerPage = () => {
   const { brandsLogo } = useSelector((state) => state.shop);
@@ -10,6 +11,7 @@ const ManufacturerPage = () => {
   return (
     <Layout>
       <div className="manufacturerPage">
+        <Path name={"Производители"} />
         <HomeCategories />
         <div className="manufacturerPage__items">
           {brandsLogo.length

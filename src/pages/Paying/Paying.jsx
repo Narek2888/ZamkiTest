@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Paying.scss";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
+import Path from "../../components/Path/Path";
 import Layout from "../../Layout/Layout";
 import { getDataObj } from "../../utils";
 import Loader from "react-loader-spinner";
@@ -17,6 +18,7 @@ const Paying = () => {
     <Layout>
       <div>
         <div className="paying">
+          <Path name={"Изготовление ключи"} />
           <HomeCategories />
           {paying.payment_html?.length ? (
             <div

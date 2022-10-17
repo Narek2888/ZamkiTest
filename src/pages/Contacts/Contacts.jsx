@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Contacts.scss";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
+import Path from "../../components/Path/Path";
 import Layout from "../../Layout/Layout";
 import { getDataObj } from "../../utils";
 import Loader from "react-loader-spinner";
@@ -18,6 +19,7 @@ const Contacts = () => {
       <div className="contact">
         <div className="contact__section">
           <HomeCategories />
+          <Path name={"Контакты"}/>
           {contact.contact_html ? (
             <div
               dangerouslySetInnerHTML={{ __html: contact.contact_html }}

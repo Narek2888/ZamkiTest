@@ -1,6 +1,8 @@
 .manufacturerPage {
   display: flex;
   gap: 30px;
+  position: relative;
+  margin: 20px 0 40px;
 
   &__items {
     display: flex;
@@ -45,7 +47,7 @@
         @media screen and (max-width: 768px) {
           width: 80px;
         }
-        
+
         @media screen and (max-width: 768px) {
           width: 65px;
         }

@@ -1,6 +1,7 @@
 .partners {
   display: flex;
   gap: 40px;
+  position: relative;
 
   &__section {
     overflow: hidden;

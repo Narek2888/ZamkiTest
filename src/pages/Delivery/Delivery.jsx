@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Delivery.scss";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import Manufacturers from "../../components/Manufacturers/Manufacturers";
+import Path from "../../components/Path/Path";
 import Layout from "../../Layout/Layout";
 import { getDataObj } from "../../utils";
 import Loader from "react-loader-spinner";
@@ -15,6 +16,7 @@ const Delivery = () => {
   return (
     <Layout>
       <div className="delivery">
+        <Path name={"Доставка"} />
         <HomeCategories />
         {delivery.delivery_html ? (
           <div

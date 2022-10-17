@@ -1,10 +1,10 @@
 .main {
   display: flex;
   flex-direction: column;
-  padding: 30px 220px 5px;
+  padding: 30px 200px 5px;
 
   @media screen and (max-width: 1440px) {
-    padding: 30px 180px 5px;
+    padding: 30px 140px 5px;
   }
   @media screen and (max-width: 1024px) {
     padding: 30px 100px 5px;
@@ -23,7 +23,8 @@
   display: flex;
   margin-top: 42px;
   margin-bottom: 45px;
-
+  gap: 38px;
+  
   @media screen and (max-width: 426px) {
     margin-top: 11px;
   }

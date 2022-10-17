@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./BasketSection.scss";
 import image from "../HomeSectionUp/image/ruchki.png";
 import { useSelector } from "react-redux";
+import Path from "../Path/Path";
 
 const BasketSection = () => {
   const { totalAmount } = useSelector((state) => state.shop);
@@ -33,6 +34,7 @@ const BasketSection = () => {
 
   return (
     <div className="basketSection">
+      <Path name={"Корзина"} />
       <div className="basketSection__text">Корзина</div>
       {/* <div className="basketSection__type">
         <div>Товары в корзине:</div>

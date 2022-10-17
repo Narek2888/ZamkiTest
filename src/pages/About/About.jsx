@@ -5,6 +5,7 @@ import Manufacturers from "../../components/Manufacturers/Manufacturers";
 import Layout from "../../Layout/Layout";
 import { getDataObj } from "../../utils";
 import Loader from "react-loader-spinner";
+import Path from "../../components/Path/Path";
 
 const About = () => {
   const [about, setAbout] = useState({});
@@ -17,6 +18,7 @@ const About = () => {
     <Layout>
       <div className="about">
         <HomeCategories />
+        <Path name={"О компании"}/>
         {about.about_html ? (
           <div dangerouslySetInnerHTML={{ __html: about.about_html }}></div>
         ) : (

@@ -1,0 +1,13 @@
+.path {
+  position: absolute;
+  top: -35px;
+  right: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9f9f9f;
+  & > span {
+    color: #000;
+    font-weight: 700;
+  }
+}
