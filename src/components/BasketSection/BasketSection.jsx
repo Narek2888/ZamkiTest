@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./BasketSection.scss";
 import image from "../HomeSectionUp/image/ruchki.png";
 import { useSelector } from "react-redux";
-// import buyImg from "../../assets/basket.png";
 
 const BasketSection = () => {
   const { totalAmount } = useSelector((state) => state.shop);
@@ -32,18 +31,16 @@ const BasketSection = () => {
     },
   ];
 
-  let pcs = basketItem.length;
-
   return (
     <div className="basketSection">
       <div className="basketSection__text">Корзина</div>
-      <div className="basketSection__type">
+      {/* <div className="basketSection__type">
         <div>Товары в корзине:</div>
         <button className="basketSection__type__done">Готовые к заказу </button>
         <button className="basketSection__type__delayed">
           Отложенные ({pcs}){" "}
         </button>
-      </div>
+      </div> */}
 
       <div className="basketSection__items">
         {basketItem.map((item, index) => {

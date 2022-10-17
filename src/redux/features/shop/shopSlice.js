@@ -1,71 +1,16 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
-import image from "./image/petli.png";
 
 const initialState = {
   cartAmount: 2,
   searchInput: "",
   isSearching: false,
   totalAmount: 1000,
-  initialReqResult: [
-    {
-      name: "КРЮЧКИ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-    {
-      name: "ЦИЛИНДРОВЫЕ МЕХАНИЗМЫ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-    {
-      name: "ПЕТЛИ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-    {
-      name: "КРЮЧКИ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-    {
-      name: "ЦИЛИНДРОВЫЕ МЕХАНИЗМЫ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-    {
-      name: "ПЕТЛИ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-    {
-      name: "КРЮЧКИ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-    {
-      name: "ЦИЛИНДРОВЫЕ МЕХАНИЗМЫ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-    {
-      name: "ПЕТЛИ",
-      patcat: "Крючки",
-      country: "Amig (Испания)",
-      img: image,
-    },
-  ],
+  initialReqResult: [],
   searchResult: [],
   categories: [],
   brandsLogo: [],
+  novinki: [],
 };
 
 export const getCategories = createAsyncThunk(
@@ -88,16 +33,44 @@ export const getBrandsLogo = createAsyncThunk(
   }
 );
 
+export const getItems = createAsyncThunk(
+  "shop/getItems",
+  async (_, { rejectWithValue, dispatch }) => {
+    const res = await axios.get(
+      "https://zamki-strapi.codium.pro/api/items?populate[images][populate][0]=image"
+    );
+    dispatch(setItems(res.data.data));
+  }
+);
+
+export const getNovinki = createAsyncThunk(
+  "shop/getItems",
+  async (_, { rejectWithValue, dispatch }) => {
+    const res = await axios.get(
+      "https://zamki-strapi.codium.pro/api/items?populate[images][populate][0]=image&sort[0]=createdAt:desc"
+    );
+    dispatch(setNovinki(res.data.data));
+  }
+);
+
 export const shopSlice = createSlice({
   name: "shop",
   initialState,
   reducers: {
     searchHandler: (state, action) => {
-      state.searchInput = action.payload.toLowerCase();
-      const sorted = state.initialReqResult.filter((item) => {
+      state.searchInput = action.payload?.toLowerCase();
+      const sorted = state?.initialReqResult?.filter((item) => {
+        console.log(current(item));
         return (
-          item.name.toLowerCase().startsWith(state.searchInput.toLowerCase()) ||
-          item.country.toLowerCase().startsWith(state.searchInput.toLowerCase())
+          item.attributes.name
+            ?.toLowerCase()
+            .startsWith(state.searchInput.toLowerCase()) ||
+          item.attributes.category
+            ?.toLowerCase()
+            .startsWith(state.searchInput.toLowerCase()) ||
+          item.attributes.category
+            ?.toLowerCase()
+            .includes(state.searchInput.toLowerCase())
         );
       });
       state.searchResult = [...sorted];
@@ -116,6 +89,14 @@ export const shopSlice = createSlice({
     setBrandsLogo: (state, action) => {
       state.brandsLogo = action.payload;
     },
+
+    setItems: (state, action) => {
+      state.initialReqResult = action.payload;
+    },
+
+    setNovinki: (state, action) => {
+      state.novinki = action.payload;
+    },
   },
 });
 
@@ -125,5 +106,7 @@ export const {
   searchHandler,
   setCategories,
   setBrandsLogo,
+  setNovinki,
+  setItems,
 } = shopSlice.actions;
 export default shopSlice.reducer;

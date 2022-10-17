@@ -52,13 +52,13 @@
 
           &:hover {
             background: #000000;
-            border: 1px solid #9F9F9F;
+            border: 1px solid #9f9f9f;
             color: #ffffff;
           }
 
           &:focus {
-            background: #DDDDDD;
-            border: 1px solid #9F9F9F;
+            background: #dddddd;
+            border: 1px solid #9f9f9f;
             color: #000000;
           }
         }
@@ -76,7 +76,7 @@
         &__name,
         &__email,
         &__phoneNumber {
-          &>input {
+          & > input {
             width: 38rem;
             // height: 50px;
             padding: 13px 28px 15px;
@@ -86,12 +86,12 @@
             }
           }
 
-          &>p {
+          & > p {
             font-weight: 600;
             font-size: 13px;
             line-height: 18px;
 
-            &>span {
+            & > span {
               color: #ff0000;
             }
           }
@@ -155,7 +155,7 @@
             text-transform: capitalize;
           }
 
-          &>input {
+          & > input {
             width: 100%;
             height: 111px;
             padding: 5px;
@@ -176,4 +176,47 @@
       }
     }
   }
+}
+
+///// dzel///
+
+.DeliveryTypeBox {
+  display: flex;
+  gap: 10px;
+}
+
+.delivery__type {
+  display: flex;
+  gap: 10px;
+  padding: 10px 40px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: 1px solid #dddddd;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
+  color: #c5c5c5;
+}
+
+.selected__del {
+  display: flex;
+  gap: 10px;
+  padding: 10px 40px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: 1px solid #000000;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
+  color: #000000;
 }

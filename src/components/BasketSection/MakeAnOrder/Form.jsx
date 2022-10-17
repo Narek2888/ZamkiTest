@@ -1,13 +1,14 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
+import DeliveryType from "./DeliveryType";
 
 const onSubmit = async (value, setModalOpen) => {
+  alert(value);
   value.fullName = "";
   value.emil = "";
   value.phoneNumber = "";
-  value.deliveryType = "byOwn";
+  value.deliveryType = "самовывоз";
   value.comment = "";
-
   setModalOpen(true);
 };
 
@@ -15,7 +16,7 @@ const initialValue = {
   fullName: "",
   emil: "",
   phoneNumber: "",
-  deliveryType: "byOwn",
+  deliveryType: "самовывоз",
   comment: "",
 };
 
@@ -86,13 +87,18 @@ const FormComponent = ({ setModalOpen }) => {
                 {({ input, meta }) => (
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <label>номер телефона *</label>
-                    <input {...input} type="text" placeholder="+7 (916)" />
+                    <input {...input} type="phone" placeholder="+7 (916)" />
                     {meta.error && meta.touched && (
                       <span style={{ color: "red" }}>{meta.error}</span>
                     )}
                   </div>
                 )}
               </Field>
+            </div>
+
+            <div>
+              <label>Способы доставки</label>
+              <DeliveryType />
             </div>
 
             <div>

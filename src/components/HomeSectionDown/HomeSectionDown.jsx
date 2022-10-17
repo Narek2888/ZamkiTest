@@ -1,11 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getItems, getNovinki } from "../../redux/features/shop/shopSlice";
 import "./HomeSectionDown.scss";
 
 const HomeSectionDown = ({ grid }) => {
-  const { initialReqResult, searchResult, isSearching } = useSelector(
+  const dispatch = useDispatch();
+
+  const { initialReqResult, searchResult, isSearching, novinki } = useSelector(
     (state) => state.shop
   );
+
+  console.log({ novinki });
+  useEffect(() => {
+    dispatch(getItems());
+    dispatch(getNovinki());
+  }, []);
 
   const showItems = isSearching ? searchResult : initialReqResult;
 
@@ -24,18 +34,23 @@ const HomeSectionDown = ({ grid }) => {
           grid ? "news__page__categories" : ""
         }`}
       >
-        {showItems.map((item, index) => {
-          const { img, name, patcat, country } = item;
+        {showItems?.map((item, index) => {
+          const { id, attributes } = item;
+          const { name, brand, category, images, price } = attributes;
+          const url = images[0]?.image?.data?.attributes.url;
           return (
-            <div className="homeCategories__categories__item" key={index}>
+            <div className="homeCategories__categories__item" key={id}>
               <div className="homeCategories__categories__item__img">
-                <img src={img} alt="categories_img" />
+                <img
+                  src={`http://zamki-strapi.codium.pro/${url}`}
+                  alt="categories_img"
+                />
               </div>
 
               <div className="homeCategories__categories__item__description">
                 <h4>{name}</h4>
-                <p>{patcat}</p>
-                <p>{country}</p>
+                <p>{brand}</p>
+                <p>{price}</p>
               </div>
             </div>
           );
