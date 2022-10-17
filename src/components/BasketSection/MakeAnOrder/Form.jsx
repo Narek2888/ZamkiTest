@@ -39,7 +39,7 @@ const validate = (values) => {
   return errors;
 };
 
-const FormComponent = ({ setModalOpen }) => {
+const FormComponent = ({ setModalOpen, totalAmount }) => {
   return (
     <Form
       onSubmit={(value) => onSubmit(value, setModalOpen)}
@@ -47,76 +47,78 @@ const FormComponent = ({ setModalOpen }) => {
       initialValues={initialValue}
       render={({ handleSubmit, submitting }) => {
         return (
-          <form onSubmit={handleSubmit}>
-            <div>
-              <Field name="fullName">
-                {({ input, meta }) => (
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label>Ф.И.О.*</label>
-                    <input
-                      {...input}
-                      type="text"
-                      placeholder="Заполните свое Ф.И.О"
-                    />
-                    {meta.error && meta.touched && (
-                      <span style={{ color: "red" }}>{meta.error}</span>
-                    )}
-                  </div>
-                )}
-              </Field>
-            </div>
-            <div>
-              <Field name="emil">
-                {({ input, meta }) => (
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label>Почта *</label>
-                    <input
-                      {...input}
-                      type="text"
-                      placeholder="Заполните свой адрес электронной почты"
-                    />
-                    {meta.error && meta.touched && (
-                      <span style={{ color: "red" }}>{meta.error}</span>
-                    )}
-                  </div>
-                )}
-              </Field>
-            </div>
-            <div>
-              <Field name="phoneNumber">
-                {({ input, meta }) => (
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label>номер телефона *</label>
-                    <input {...input} type="phone" placeholder="+7 (916)" />
-                    {meta.error && meta.touched && (
-                      <span style={{ color: "red" }}>{meta.error}</span>
-                    )}
-                  </div>
-                )}
-              </Field>
-            </div>
+          <div>
+            <form className="form" onSubmit={handleSubmit}>
+              <div className="form__item">
+                <Field name="fullName">
+                  {({ input, meta }) => (
+                    <div className="form__item__name">
+                      <label>Ф.И.О.*</label>
+                      <input
+                        {...input}
+                        type="text"
+                        placeholder="Заполните свое Ф.И.О"
+                      />
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </div>
+                  )}
+                </Field>
+              </div>
+              <div className="form__item">
+                <Field name="emil">
+                  {({ input, meta }) => (
+                    <div className="form__item__email">
+                      <label>Почта *</label>
+                      <input
+                        {...input}
+                        type="text"
+                        placeholder="Заполните свой адрес электронной почты"
+                      />
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </div>
+                  )}
+                </Field>
+              </div>
+              <div className="form__item">
+                <Field name="phoneNumber">
+                  {({ input, meta }) => (
+                    <div className="form__item__phoneNumber">
+                      <label>номер телефона *</label>
+                      <input {...input} type="phone" placeholder="+7 (916)" />
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </div>
+                  )}
+                </Field>
+              </div>
 
-            <div>
-              <label>Способы доставки</label>
-              <DeliveryType />
-            </div>
+              <div className="deliveryType">
+                <label>Способы доставки</label>
+                <DeliveryType />
+              </div>
 
-            <div>
-              <label>Комментарии к заказу </label>
-              <Field
-                name="comment"
-                component="textarea"
-                placeholder="оставьте сообщение "
-              />
+              <div className="comment">
+                <label>Комментарии к заказу </label>
+                <Field
+                  className="comment__input"
+                  name="comment"
+                  component="textarea"
+                  placeholder="оставьте сообщение "
+                />
+              </div>
+            </form>
+            <div className="basketSection__items__buy">
+              <div className="basketSection__items__buy__total">
+                Итого: {totalAmount} руб.
+              </div>
+              <button
+                className="basketSection__items__buy__order"
+                disabled={submitting}
+                onClick={setModalOpen}
+              >
+                Оформить заказ
+              </button>
             </div>
-
-            <button
-              className="basketSection__items__buy__order"
-              disabled={submitting}
-            >
-              Оформить заказ
-            </button>
-          </form>
+          </div>
         );
       }}
     />

@@ -68,8 +68,8 @@ const Navbar = () => {
             {cartAmount > 0 ? <div className="circle">{cartAmount}</div> : null}
             {cartAmount > 0 ? (
               <div className="header__up__right__basket__hoverBox">
-                {cartAmount} товара <br />
-                {totalAmount} рублей
+               <p className="header__up__right__basket__hoverBox__psc"> {cartAmount} товара</p>
+               <p className="header__up__right__basket__hoverBox__price">{totalAmount} руб</p>  
               </div>
             ) : null}
             <Link to="/karzina">
