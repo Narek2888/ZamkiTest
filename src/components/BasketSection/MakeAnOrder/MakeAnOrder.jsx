@@ -1,20 +1,20 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import "./MakeAnOrder.scss";
 import HomeCategories from "../../HomeCategories/HomeCategories";
-
 import Manufacturers from "../../Manufacturers/Manufacturers";
 import Modal from "../../../pages/Basket/Modal/Modal";
 import Layout from "../../../Layout/Layout";
-import { useSelector } from "react-redux";
 import Form from "./Form";
+import Path from "../../Path/Path";
 
 const MakeAnOrder = () => {
   const { totalAmount } = useSelector((state) => state.shop);
   const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <Layout>
       <div className="makeAnOrder">
+        <Path name={"Корзина > Оформить заказ"}/>
         <div className="makeAnOrder__up">
           <HomeCategories />
           <div className="makeAnOrder__up__section">
@@ -29,13 +29,7 @@ const MakeAnOrder = () => {
               </button>
             </div> */}
 
-            <Form setModalOpen={setModalOpen} />
-
-            <div className="basketSection__items__buy">
-              <div className="basketSection__items__buy__total">
-                Итого: {totalAmount} руб.
-              </div>
-            </div>
+            <Form setModalOpen={setModalOpen} totalAmount={totalAmount} />
           </div>
           {modalOpen && <Modal setModalOpen={setModalOpen} />}
         </div>
