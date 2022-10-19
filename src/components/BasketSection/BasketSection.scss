@@ -70,7 +70,6 @@
     grid-template-columns: auto auto;
     gap: 40px 20px;
     padding-bottom: 55px;
-    border-bottom: 1px solid #d9d9d9;
 
     @media screen and (max-width: 768px) {
       gap: 20px;
@@ -81,10 +80,13 @@
     }
 
     &__buy {
+      width: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: 35px;
+      border-top: 1px solid #9f9f9f;
+      padding-top: 20px;
 
       @media screen and (max-width: 1024px) {
         flex-direction: column;
@@ -161,7 +163,7 @@
           background: url(../../assets/closeRed.png) no-repeat;
         }
 
-        > img {
+        >img {
           width: 100%;
           height: 100%;
         }
@@ -259,7 +261,7 @@
             font-size: 9px;
           }
 
-          > input {
+          >input {
             width: 65px;
             height: 27px;
             background: #f5f5f5;
@@ -316,7 +318,7 @@
       &__img {
         width: 50%;
 
-        & > img {
+        &>img {
           width: 100%;
           height: 100%;
         }
