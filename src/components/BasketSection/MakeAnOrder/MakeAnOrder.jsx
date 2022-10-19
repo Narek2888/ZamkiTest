@@ -14,7 +14,8 @@ const MakeAnOrder = () => {
   return (
     <Layout>
       <div className="makeAnOrder">
-        <Path name={"Корзина > Оформить заказ"}/>
+        <Path name={"Корзина > Оформить заказ"} />
+
         <div className="makeAnOrder__up">
           <HomeCategories />
           <div className="makeAnOrder__up__section">

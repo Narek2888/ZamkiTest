@@ -18,21 +18,23 @@ const Paying = () => {
     <Layout>
       <div>
         <div className="paying">
-          <Path name={"Изготовление ключи"} />
           <HomeCategories />
-          {paying.payment_html?.length ? (
-            <div
-              dangerouslySetInnerHTML={{ __html: paying.payment_html }}
-            ></div>
-          ) : (
-            <Loader
-              type="TailSpin"
-              color="#16CED4"
-              height={50}
-              width={50}
-              timeout={10000}
-            />
-          )}
+          <div>
+            <Path path={{ name: "Изготовление ключи", to: "/oplata" }} />
+            {paying.payment_html?.length ? (
+              <div
+                dangerouslySetInnerHTML={{ __html: paying.payment_html }}
+              ></div>
+            ) : (
+              <Loader
+                type="TailSpin"
+                color="#16CED4"
+                height={50}
+                width={50}
+                timeout={10000}
+              />
+            )}
+          </div>
         </div>
         <Manufacturers />
       </div>

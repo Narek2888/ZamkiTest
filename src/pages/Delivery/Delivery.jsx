@@ -16,21 +16,23 @@ const Delivery = () => {
   return (
     <Layout>
       <div className="delivery">
-        <Path name={"Доставка"} />
         <HomeCategories />
-        {delivery.delivery_html ? (
-          <div
-            dangerouslySetInnerHTML={{ __html: delivery.delivery_html }}
-          ></div>
-        ) : (
-          <Loader
-            type="TailSpin"
-            color="#16CED4"
-            height={50}
-            width={50}
-            timeout={10000}
-          />
-        )}
+        <div>
+          <Path path={{ name: "Доставка", to: "/dostavka" }} />
+          {delivery.delivery_html ? (
+            <div
+              dangerouslySetInnerHTML={{ __html: delivery.delivery_html }}
+            ></div>
+          ) : (
+            <Loader
+              type="TailSpin"
+              color="#16CED4"
+              height={50}
+              width={50}
+              timeout={10000}
+            />
+          )}
+        </div>
       </div>
       <Manufacturers />
     </Layout>

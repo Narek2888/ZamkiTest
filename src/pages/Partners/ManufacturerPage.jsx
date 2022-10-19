@@ -11,25 +11,27 @@ const ManufacturerPage = () => {
   return (
     <Layout>
       <div className="manufacturerPage">
-        <Path name={"Производители"} />
         <HomeCategories />
-        <div className="manufacturerPage__items">
-          {brandsLogo.length
-            ? brandsLogo.map((item, index) => {
-                const { attributes } = item.attributes.logo.data[0];
-                const { url } = attributes;
+        <div>
+          <Path path={{ name: "Производители", to: "/partners" }} />
+          <div className="manufacturerPage__items">
+            {brandsLogo.length
+              ? brandsLogo.map((item, index) => {
+                  const { attributes } = item.attributes.logo.data[0];
+                  const { url } = attributes;
 
-                return (
-                  <div key={index} className="manufacturerPage__items__item">
-                    <img
-                      className="manufacturerPage__items__item__img"
-                      src={`https://zamki-strapi.codium.pro/${url}`}
-                      alt="brand"
-                    />
-                  </div>
-                );
-              })
-            : null}
+                  return (
+                    <div key={index} className="manufacturerPage__items__item">
+                      <img
+                        className="manufacturerPage__items__item__img"
+                        src={`https://zamki-strapi.codium.pro/${url}`}
+                        alt="brand"
+                      />
+                    </div>
+                  );
+                })
+              : null}
+          </div>
         </div>
       </div>
     </Layout>
