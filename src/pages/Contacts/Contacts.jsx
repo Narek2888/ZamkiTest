@@ -19,9 +19,10 @@ const Contacts = () => {
       <div className="contact">
         <div className="contact__section">
           <HomeCategories />
-          <Path name={"Контакты"}/>
+          <Path name={"Контакты"} />
           {contact.contact_html ? (
             <div
+              className="richText"
               dangerouslySetInnerHTML={{ __html: contact.contact_html }}
             ></div>
           ) : (

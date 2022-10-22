@@ -18,9 +18,12 @@ const About = () => {
     <Layout>
       <div className="about">
         <HomeCategories />
-        <Path name={"О компании"}/>
+        <Path name={"О компании"} />
         {about.about_html ? (
-          <div dangerouslySetInnerHTML={{ __html: about.about_html }}></div>
+          <div
+            className="richText"
+            dangerouslySetInnerHTML={{ __html: about.about_html }}
+          ></div>
         ) : (
           <Loader
             type="TailSpin"

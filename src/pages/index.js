@@ -4,7 +4,7 @@ import Delivery from "./Delivery/Delivery";
 import Home from "./Home";
 import New from "./New/New";
 import Partners from "./Partners/Partners";
-import Paying from "./Paying/Paying";
+import LockProduction from "./LockProduction/LockProduction";
 import Basket from "./Basket/Basket";
 
-export { About, Contacts, Delivery, Home, New, Partners, Paying, Basket };
+export { About, Contacts, Delivery, Home, New, Partners, LockProduction, Basket };

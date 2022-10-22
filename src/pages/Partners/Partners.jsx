@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./Partners.scss";
-import image from "../../components/HomeSectionUp/image/ruchki.png";
+import { getDataObj } from "../../utils";
 import HomeCategories from "../../components/HomeCategories/HomeCategories";
-import Manufacturers from "../../components/Manufacturers/Manufacturers";
 import Layout from "../../Layout/Layout";
+import Path from "../../components/Path/Path";
+import image from "./image/ruchki.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const Partners = () => {
+  const { id } = useParams();
+
+  const [partners, setPartners] = useState({});
+
+  useEffect(() => {
+    getDataObj(
+      `https://zamki-strapi.codium.pro/api/brands/${id}?populate`,
+      setPartners
+    );
+  }, []);
+
+  ///////////
+
   const partnersItem = [
     {
       name: "Доводчики дверей",
@@ -37,15 +54,20 @@ const Partners = () => {
       image: image,
     },
   ];
+
+  ////////////////////////
+
   return (
     <Layout>
       <div className="partners">
+        <Path name={`Производители > ${partners.name}`} />
         <HomeCategories />
+        {/* <h1 style={{ textAlign: "center" }}>{partners.name}</h1> */}
+
         <div className="partners__section">
-          <Manufacturers />
           <div className="partners__section__partners">
             <div className="partners__section__partners__text">
-              Все категории производителя - Dorma
+              Все категории производителя - {partners.name}
             </div>
             <div className="partners__section__partners__items">
               {partnersItem.map((item, index) => {
@@ -68,10 +90,31 @@ const Partners = () => {
             </div>
           </div>
 
-          <div className="partners__section__type">
-            <div>Сортировать </div>
-            <button className="partners__section__type__done">По типу</button>
-            <button className="partners__section__type__delayed">Названию</button>
+          <div className="partners__section__filter">
+            <input
+              type="text"
+              className="partners__section__filter__input"
+              placeholder="Поиск"
+            />
+            <div className="partners__section__filter__sort">
+              <div>Сортировать </div>
+              <div className="partners__section__filter__type">
+                По типу
+                <FontAwesomeIcon icon={faChevronDown} />
+              </div>
+              <div className="partners__section__filter__price">
+                цене
+                <FontAwesomeIcon icon={faChevronDown} />
+              </div>
+              <div className="partners__section__filter__withdraw">
+                Выводить по
+                <select name="" id="">
+                  <option value="">10</option>
+                  <option value="">20</option>
+                  <option value="">50</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <div className="partners__section__items">
@@ -103,9 +146,7 @@ const Partners = () => {
                       <div className="partners__section__items__item__description__postpone__text">
                         В корзину
                       </div>
-                      <div className="partners__section__items__item__description__postpone__buyImg">
-                        {/* <img src={buyImg} alt="buyImg" /> */}
-                      </div>
+                      <div className="partners__section__items__item__description__postpone__buyImg"></div>
                     </div>
                   </div>
                 </div>

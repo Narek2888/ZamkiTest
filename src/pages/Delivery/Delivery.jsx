@@ -20,6 +20,7 @@ const Delivery = () => {
         <HomeCategories />
         {delivery.delivery_html ? (
           <div
+            className="richText"
             dangerouslySetInnerHTML={{ __html: delivery.delivery_html }}
           ></div>
         ) : (

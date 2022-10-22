@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getItems, getNovinki } from "../../redux/features/shop/shopSlice";
 import "./HomeSectionDown.scss";
 
@@ -11,7 +12,7 @@ const HomeSectionDown = ({ grid }) => {
     (state) => state.shop
   );
 
-  console.log({ novinki });
+  // console.log({ novinki });
   useEffect(() => {
     dispatch(getItems());
     dispatch(getNovinki());
@@ -39,7 +40,9 @@ const HomeSectionDown = ({ grid }) => {
           const { name, brand, category, images, price } = attributes;
           const url = images[0]?.image?.data?.attributes.url;
           return (
-            <div className="homeCategories__categories__item" key={id}>
+            <Link
+            to={`/homepage/${id}`}
+             className="homeCategories__categories__item" key={id}>
               <div className="homeCategories__categories__item__img">
                 <img
                   src={`http://zamki-strapi.codium.pro/${url}`}
@@ -52,7 +55,7 @@ const HomeSectionDown = ({ grid }) => {
                 <p>{brand}</p>
                 <p>{price}</p>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

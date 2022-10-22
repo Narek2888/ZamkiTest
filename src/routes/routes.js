@@ -3,11 +3,13 @@ import { Route } from "react-router-dom";
 import { useMemo } from "react";
 import { Contacts, Home, New } from "../pages";
 import Basket from "../pages/Basket/Basket";
-import Paying from "../pages/Paying/Paying";
+import LockProduction from "../pages/LockProduction/LockProduction";
 import MakeAnOrder from "../components/BasketSection/MakeAnOrder/MakeAnOrder";
 import ManufacturerPage from "../pages/Partners/ManufacturerPage";
 import About from "../pages/About/About";
 import Delivery from "../pages/Delivery/Delivery";
+import Partners from "../pages/Partners/Partners";
+import HomePageItem from "../components/HomePageItem/HomePageItem";
 
 export const routes = [
   {
@@ -43,7 +45,7 @@ export const routes = [
   {
     path: "/oplata",
     name: "oplata",
-    component: Paying,
+    component: LockProduction,
   },
 
   {
@@ -61,6 +63,17 @@ export const routes = [
     path: "/karzina/aformitzakaz",
     name: "MakeAnOrder",
     component: MakeAnOrder,
+  },
+
+  {
+    path: "/manufacture/:id",
+    name: "Partnes",
+    component: Partners,
+  },
+  {
+    path: "/homepage/:id",
+    name: "homepage_items",
+    component: HomePageItem,
   },
 ];
 
