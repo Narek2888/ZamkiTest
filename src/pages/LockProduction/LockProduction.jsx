@@ -16,16 +16,19 @@ const LockProduction = () => {
       setLockProduction
     );
   }, []);
+
   return (
     <Layout>
       <div>
-        <div className="paying">
+        <div className="lockProduction">
           <HomeCategories />
           <div>
             <Path path={{ name: "Изготовление ключи", to: "/oplata" }} />
-            {paying.payment_html?.length ? (
+            {lockProduction.production_information?.length ? (
               <div
-                dangerouslySetInnerHTML={{ __html: paying.payment_html }}
+                dangerouslySetInnerHTML={{
+                  __html: lockProduction.production_information,
+                }}
               ></div>
             ) : (
               <Loader

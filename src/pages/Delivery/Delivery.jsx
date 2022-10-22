@@ -17,22 +17,6 @@ const Delivery = () => {
     <Layout>
       <div className="delivery">
         <HomeCategories />
-<<<<<<< HEAD
-        {delivery.delivery_html ? (
-          <div
-            className="richText"
-            dangerouslySetInnerHTML={{ __html: delivery.delivery_html }}
-          ></div>
-        ) : (
-          <Loader
-            type="TailSpin"
-            color="#16CED4"
-            height={50}
-            width={50}
-            timeout={10000}
-          />
-        )}
-=======
         <div>
           <Path path={{ name: "Доставка", to: "/dostavka" }} />
           {delivery.delivery_html ? (
@@ -49,7 +33,6 @@ const Delivery = () => {
             />
           )}
         </div>
->>>>>>> 722a5a868de999e51efc09e6a75f84342d6e5e56
       </div>
       <Manufacturers />
     </Layout>
