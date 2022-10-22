@@ -5,6 +5,7 @@ import closePng from "../../assets/close.png";
 import CategoriesItem from "./CategoriesItem";
 import "./HomeCategories.scss";
 
+
 const HomeCategories = ({ navRef, closeMenuRef }) => {
   const { categories } = useSelector((state) => state.shop);
 

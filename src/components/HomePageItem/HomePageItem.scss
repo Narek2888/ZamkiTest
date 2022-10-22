@@ -1,0 +1,144 @@
+.ditatePage {
+    position: relative;
+    margin: 20px 0 40px;
+    display: flex;
+    gap: 40px;
+
+    &__item {
+        width: 100%;
+
+        &>h1 {
+            font-weight: 500;
+            font-size: 22.0664px;
+            line-height: 26px;
+            text-transform: capitalize;
+            margin-bottom: 30px;
+        }
+
+        &__bio {
+            background: #fff;
+            border: 1.29928px solid #CCCCCC;
+
+            &__data {
+                display: flex;
+                background: #FFFFFF;
+                width: 100%;
+
+                &__img {
+                    width: 50%;
+                    height: 400px;
+                    background: #CCCCCC;
+                    border: 1.77907px solid #CCCCCC;
+                }
+
+                &__description1 {
+                    position: relative;
+                    padding: 10px 20px;
+                    width: 50%;
+
+                    &__text {
+                        font-weight: 300;
+                        font-size: 17.8187px;
+                        line-height: 21px;
+                        text-transform: capitalize;
+                    }
+
+                    &__price {
+                        font-weight: 700;
+                        font-size: 23px;
+                        line-height: 17px;
+                        text-transform: capitalize;
+                        margin: 40px 0 25px;
+                    }
+
+                    &__count {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 15px;
+
+                        &>input {
+                            width: 65px;
+                            height: 27px;
+                            background: #F5F5F5;
+                            border: 1.11367px solid #9F9F9F;
+                            border-radius: 4.13744px;
+                        }
+                    }
+
+                    &__postpone {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        font-weight: 500;
+                        font-size: 12.9201px;
+                        line-height: 15px;
+                        text-decoration-line: underline;
+                        position: absolute;
+                        bottom: 5px;
+                        right: 10px;
+
+                        &:hover {
+                            color: #16ced4;
+                        }
+
+                        &:hover &__buyImg {
+                            background: url(../../assets/basketBlue.png) no-repeat;
+                        }
+
+                        &__text {
+                            cursor: pointer;
+                        }
+
+                        &__buyImg {
+                            width: 28px;
+                            height: 28px;
+                            margin-left: 6px;
+                            cursor: pointer;
+                            background: url(../../assets/basket.png) no-repeat;
+                            background-size: contain;
+                        }
+                    }
+
+                    &__color {
+                        display: flex;
+                        gap: 10px;
+                        margin: 20px 0 0;
+
+                        &__red,
+                        &__white,
+                        &__black {
+                            width: 26px;
+                            height: 20px;
+                            border: 1.11367px solid #CCCCCC;
+                            cursor: pointer;
+                        }
+
+                        &__red {
+                            background: #f00;
+                        }
+
+                        &__white {
+                            background: #fff;
+                        }
+
+                        &__black {
+                            background: #000;
+                        }
+                    }
+                }
+            }
+
+            &__description2 {
+                margin: 44px 40px 50px;
+
+                &__desc {
+                    font-size: 17.8187px;
+                    line-height: 21px;
+                }
+            }
+        }
+    }
+}

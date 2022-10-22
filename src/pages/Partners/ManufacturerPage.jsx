@@ -4,6 +4,7 @@ import HomeCategories from "../../components/HomeCategories/HomeCategories";
 import Layout from "../../Layout/Layout";
 import { useSelector } from "react-redux";
 import Path from "../../components/Path/Path";
+import { Link } from "react-router-dom";
 
 const ManufacturerPage = () => {
   const { brandsLogo } = useSelector((state) => state.shop);
