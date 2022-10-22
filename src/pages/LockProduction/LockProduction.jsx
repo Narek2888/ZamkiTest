@@ -19,25 +19,24 @@ const LockProduction = () => {
   return (
     <Layout>
       <div>
-        <div className="lockProduction">
-          <Path name={"Изготовление ключи"} />
+        <div className="paying">
           <HomeCategories />
-          {lockProduction.production_information?.length ? (
-            <div
-              className="richText"
-              dangerouslySetInnerHTML={{
-                __html: lockProduction.production_information,
-              }}
-            ></div>
-          ) : (
-            <Loader
-              type="TailSpin"
-              color="#16CED4"
-              height={50}
-              width={50}
-              timeout={10000}
-            />
-          )}
+          <div>
+            <Path path={{ name: "Изготовление ключи", to: "/oplata" }} />
+            {paying.payment_html?.length ? (
+              <div
+                dangerouslySetInnerHTML={{ __html: paying.payment_html }}
+              ></div>
+            ) : (
+              <Loader
+                type="TailSpin"
+                color="#16CED4"
+                height={50}
+                width={50}
+                timeout={10000}
+              />
+            )}
+          </div>
         </div>
         <Manufacturers />
       </div>

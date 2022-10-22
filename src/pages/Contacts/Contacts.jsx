@@ -19,21 +19,22 @@ const Contacts = () => {
       <div className="contact">
         <div className="contact__section">
           <HomeCategories />
-          <Path name={"Контакты"} />
-          {contact.contact_html ? (
-            <div
-              className="richText"
-              dangerouslySetInnerHTML={{ __html: contact.contact_html }}
-            ></div>
-          ) : (
-            <Loader
-              type="TailSpin"
-              color="#16CED4"
-              height={50}
-              width={50}
-              timeout={10000}
-            />
-          )}
+          <div>
+            <Path path={{ name: "Контакты", to: "contacts" }} />
+            {contact.contact_html ? (
+              <div
+                dangerouslySetInnerHTML={{ __html: contact.contact_html }}
+              ></div>
+            ) : (
+              <Loader
+                type="TailSpin"
+                color="#16CED4"
+                height={50}
+                width={50}
+                timeout={10000}
+              />
+            )}
+          </div>
         </div>
         <Manufacturers />
       </div>

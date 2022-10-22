@@ -8,7 +8,7 @@ const New = () => {
   return (
     <Layout>
       <div className="new">
-        <Path name={"Новинки"} />
+        <Path path={{ name: "Новинки", to: "/novniki" }} />
         <HomeSection grid />
       </div>
     </Layout>
