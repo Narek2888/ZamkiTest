@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./axios";
 
 export const getData = async (url, stateChanger) => {
   const data = await axios

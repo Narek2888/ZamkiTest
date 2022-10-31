@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   margin: 2px 0;
-  display: flex;
   align-items: center;
 
   &__item {
@@ -111,6 +110,7 @@
   color: #000000;
   border-left: 1px solid #9f9f9f;
   border-right: 1px solid #9f9f9f;
+  transition: 2s ease-in;
 
   @media screen and (max-width: 768px) {
     font-size: 13px;

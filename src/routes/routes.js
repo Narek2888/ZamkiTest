@@ -25,8 +25,8 @@ export const routes = [
   },
 
   {
-    path: "/novniki",
-    name: "novinki",
+    path: "/new",
+    name: "new",
     component: New,
   },
 
@@ -37,14 +37,14 @@ export const routes = [
   },
 
   {
-    path: "/dostavka",
+    path: "/delivery",
     name: "dostavka",
     component: Delivery,
   },
 
   {
-    path: "/oplata",
-    name: "oplata",
+    path: "/key-manufacture",
+    name: "LockProduction",
     component: LockProduction,
   },
 
@@ -55,12 +55,12 @@ export const routes = [
   },
 
   {
-    path: "/karzina",
+    path: "/basket",
     name: "basket",
     component: Basket,
   },
   {
-    path: "/karzina/aformitzakaz",
+    path: "/basket/aformitzakaz",
     name: "MakeAnOrder",
     component: MakeAnOrder,
   },

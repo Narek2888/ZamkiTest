@@ -9,7 +9,7 @@
             "name": "Контакты"
         },
         {
-            "path": "/novniki",
+            "path": "/new",
             "name": "Новинки"
         },
         {
@@ -17,12 +17,12 @@
             "name": "Производители"
         },
         {
-            "path": "/dostavka",
+            "path": "/delivery",
             "name": "Доставка"
         },
         {
-            "path": "/oplata",
-            "name": "Изготовление ключи"
+            "path": "/key-manufacture",
+            "name": "Изготовление ключей"
         }
     ]
 }

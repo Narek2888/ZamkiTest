@@ -2,34 +2,66 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getItems, getNovinki } from "../../redux/features/shop/shopSlice";
+import { getNovinki } from "../../redux/features/shop/shopSlice";
+import {
+  removeSearchResult,
+  getItems,
+} from "../../redux/features/shop/searchSlice";
+
 import "./HomeSectionDown.scss";
 
 const HomeSectionDown = ({ grid }) => {
   const dispatch = useDispatch();
 
-  const { initialReqResult, searchResult, isSearching, novinki } = useSelector(
-    (state) => state.shop
+  const { novinki } = useSelector((state) => state.shop);
+
+  const { searchResult, isSearching, initialReqResult } = useSelector(
+    (state) => {
+      return state.search;
+    }
   );
 
-  // console.log({ novinki });
   useEffect(() => {
     dispatch(getItems());
     dispatch(getNovinki());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const showItems = isSearching ? searchResult : initialReqResult;
+  const inNovinkiPage = window.location.pathname === "/new";
+
+  function renderItems() {
+    if (isSearching) {
+      return searchResult;
+    } else {
+      if (inNovinkiPage && !isSearching) {
+        return novinki;
+      } else {
+        return initialReqResult;
+      }
+    }
+  }
+
+  const showItems = renderItems();
+
+  const handleInital = () => {
+    dispatch(removeSearchResult());
+  };
 
   return (
     <div className="homeCategories">
-      <div className="homeCategories__text">КАТЕГОРИИ</div>
+      <div className="homeCategories__text" onClick={handleInital}>
+        КАТЕГОРИИ
+      </div>
       {isSearching ? (
         searchResult.length > 0 ? (
-          <p>По вышему запрросу мы нашли:</p>
+          <p className="homeCategories__info">По вышему запросу мы нашли:</p>
         ) : (
-          <p>По вышему запрросу нечего не нашли:</p>
+          <p className="homeCategories__info">
+            По вышему запросу нечего не нашли:
+          </p>
         )
       ) : null}
+
       <div
         className={`homeCategories__categories ${
           grid ? "news__page__categories" : ""
@@ -37,13 +69,21 @@ const HomeSectionDown = ({ grid }) => {
       >
         {showItems?.map((item, index) => {
           const { id, attributes } = item;
-          const { name, brand, category, images, price } = attributes;
-          const url = images[0]?.image?.data?.attributes.url;
+          const { name, images, price } = attributes;
+          const url = images?.length
+            ? images[0]?.image?.data?.attributes.url
+            : "";
+
+          const prettyName = name.slice(0, 30);
+
           return (
             <Link
-            to={`/homepage/${id}`}
-             className="homeCategories__categories__item" key={id}>
+              to={`/homepage/${id}`}
+              className="homeCategories__categories__item"
+              key={`${id}-${index}`}
+            >
               <div className="homeCategories__categories__item__img">
+                {item.attributes.new ? <div className="newicon">NEW</div> : ""}
                 <img
                   src={`http://zamki-strapi.codium.pro/${url}`}
                   alt="categories_img"
@@ -51,9 +91,8 @@ const HomeSectionDown = ({ grid }) => {
               </div>
 
               <div className="homeCategories__categories__item__description">
-                <h4>{name}</h4>
-                <p>{brand}</p>
-                <p>{price}</p>
+                <h4>{prettyName}...</h4>
+                <p>{price} руб</p>
               </div>
             </Link>
           );

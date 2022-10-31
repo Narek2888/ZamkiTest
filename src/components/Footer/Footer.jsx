@@ -2,21 +2,26 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import "./Footer.scss";
 import { getDataObj } from "../../utils";
+import { handleSelectCategory } from "../../redux/features/shop/searchSlice";
+import { useDispatch } from "react-redux";
 
 const Footer = () => {
   const [products, setProducts] = useState({});
 
   useEffect(() => {
-    getDataObj("https://zamki-strapi.codium.pro/api/footer", setProducts);
+    getDataObj(
+      "/footer?populate=deep,6",
+      setProducts
+    );
   }, []);
 
-  const {
-    column_1,
-    column_2,
-    column_3,
-    column_4,
-  } = products;
+  const dispatch = useDispatch();
 
+  const { column_1, column_2, column_3, column_4 } = products;
+
+  const handleSelect = (items) => {
+    dispatch(handleSelectCategory(items));
+  };
   return (
     <div className="footer">
       <div className="footer__up">
@@ -40,14 +45,36 @@ const Footer = () => {
             {column_2?.length ? (
               <div className="footer__up__products__items__column2">
                 {column_2?.map((item, index) => {
-                  return <div key={index}>{item}</div>;
+                  return (
+                    <div
+                      key={index}
+                      onClick={() =>
+                        handleSelect(
+                          item?.footer_item?.data?.attributes.items.data
+                        )
+                      }
+                    >
+                      {item?.footer_item?.data?.attributes?.item}
+                    </div>
+                  );
                 })}
               </div>
             ) : null}
             {column_3?.length ? (
               <div className="footer__up__products__items__column3">
                 {column_3?.map((item, index) => {
-                  return <div key={index}>{item}</div>;
+                  return (
+                    <div
+                      key={index}
+                      onClick={() =>
+                        handleSelect(
+                          item?.footer_item?.data?.attributes.items.data
+                        )
+                      }
+                    >
+                      {item?.footer_item?.data?.attributes?.item}
+                    </div>
+                  );
                 })}
               </div>
             ) : null}
@@ -55,7 +82,18 @@ const Footer = () => {
             {column_4?.length ? (
               <div className="footer__up__products__items__column4">
                 {column_4?.map((item, index) => {
-                  return <div key={index}>{item}</div>;
+                  return (
+                    <div
+                      key={index}
+                      onClick={() =>
+                        handleSelect(
+                          item?.footer_item?.data?.attributes.items.data
+                        )
+                      }
+                    >
+                      {item?.footer_item?.data?.attributes?.item}
+                    </div>
+                  );
                 })}
               </div>
             ) : null}

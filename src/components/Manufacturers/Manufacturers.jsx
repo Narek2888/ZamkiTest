@@ -7,6 +7,7 @@ import "./Manufacturers.scss";
 
 const Manufacturers = () => {
   const { brandsLogo } = useSelector((state) => state.shop);
+
   return (
     <div className="manufacturers">
       <div className="manufacturers__text">Производители</div>

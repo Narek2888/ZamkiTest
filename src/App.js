@@ -8,7 +8,6 @@ import { ErrorBoundary } from "./components/errorBoundary/ErrorBoundary";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getBrandsLogo, getCategories } from "./redux/features/shop/shopSlice";
-
 function App() {
   const routes = useRoutes();
   const dispatch = useDispatch();
@@ -16,7 +15,8 @@ function App() {
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getBrandsLogo());
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.location.pathname]);
 
   return (
     <div className="App">

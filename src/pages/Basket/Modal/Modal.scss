@@ -13,6 +13,9 @@
         width: 339px;
     }
 
+    @media screen and (max-width: 375px) {
+        width: 90%;
+    }
 
     &__close {
         width: 50px;
@@ -31,7 +34,22 @@
 
         @media screen and (max-width: 1024px) {
             font-size: 16px;
-        }   
+        }
+    }
+
+    &__addItem {
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        padding: 45px 39px;
+        background: #dadada;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 19px;
+            padding: 55px 12px;
+        }
     }
 
     &__message {
@@ -48,27 +66,43 @@
             padding: 55px 12px;
         }
 
-        >p {
-            font-size: 35px;
+        // >p {
+        //     font-size: 35px;
 
-            @media screen and (max-width: 1024px) {
-                font-size: 26px;
-            }
-        }
+        //     @media screen and (max-width: 1024px) {
+        //         font-size: 26px;
+        //     }
+        // }
+    }
+
+    &__goToBasket {
+        width: 240px;
+        height: 51px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 50px;
+        letter-spacing: 0.01em;
+        background: #16ced4;
+        border: 1px solid #000000;
+        border-radius: 25.5px;
+        transition: 0.7s;
+        text-align: center;
+        cursor: pointer;
+        margin: 20px 0 30px;
     }
 }
 
 .modalBackground {
-    
-        background-color: rgba(0, 0, 0, 0.5);
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: auto;
-        z-index: 99999;
-  }
+
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    z-index: 99999;
+}

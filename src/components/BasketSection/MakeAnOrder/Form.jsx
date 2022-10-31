@@ -2,6 +2,7 @@ import React from "react";
 import { Field, Form } from "react-final-form";
 import DeliveryType from "./DeliveryType";
 const onSubmit = async (value, setModalOpen) => {
+  console.log({ value });
   value.fullName = "";
   value.emil = "";
   value.phoneNumber = "";
