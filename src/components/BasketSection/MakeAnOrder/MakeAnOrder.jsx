@@ -9,12 +9,16 @@ import Form from "./Form";
 import Path from "../../Path/Path";
 
 const MakeAnOrder = () => {
-  const { totalAmount } = useSelector((state) => state.shop);
+  const { totalAmount } = useSelector((state) => state.card);
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <Layout>
       <div className="makeAnOrder">
-        <Path name={"Корзина > Оформить заказ"} />
+        <Path path={[
+              { name: "Главная страница > ", to: "/" },
+              { name: "Корзина >", to: "/basket" },
+              { name: "Оформить заказ", to: "/aformitzakaz" }
+            ]} />
 
         <div className="makeAnOrder__up">
           <HomeCategories />

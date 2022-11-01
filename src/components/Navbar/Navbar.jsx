@@ -7,13 +7,15 @@ import basketPng from "../../assets/basket.png";
 import burgerbtn from "../../assets/burger.png";
 import HomeCategories from "../HomeCategories/HomeCategories";
 import { useDispatch, useSelector } from "react-redux";
-import { searchHandler } from "../../redux/features/shop/shopSlice";
+import {
+  removeSearchResult,
+  searchHandler,
+} from "../../redux/features/shop/searchSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const { cartAmount, totalAmount, searchInput } = useSelector(
-    (state) => state.shop
-  );
+  const { searchInput } = useSelector((state) => state.search);
+  const { cardAmount, totalAmount } = useSelector((state) => state.card);
   const [size, setSize] = useState(window.innerWidth);
   const navRef = useRef();
   const closeMenuRef = useRef();
@@ -33,7 +35,12 @@ const Navbar = () => {
   };
 
   const onSearchHandler = (e) => {
-    dispatch(searchHandler(e.target.value));
+    if (window.location.pathname === "/")
+      dispatch(searchHandler(e.target.value));
+  };
+
+  const handelDoInitial = () => {
+    dispatch(removeSearchResult());
   };
 
   return (
@@ -47,7 +54,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="header__up__burger__logo">
-            <Link to="/">
+            <Link to="/" onClick={handelDoInitial}>
               <img src={logo} alt="logo" />
             </Link>
           </div>
@@ -65,14 +72,19 @@ const Navbar = () => {
           </div>
 
           <div className="header__up__right__basket">
-            {cartAmount > 0 ? <div className="circle">{cartAmount}</div> : null}
-            {cartAmount > 0 ? (
+            {cardAmount > 0 ? <div className="circle">{cardAmount}</div> : null}
+            {cardAmount > 0 ? (
               <div className="header__up__right__basket__hoverBox">
-               <p className="header__up__right__basket__hoverBox__psc"> {cartAmount} товара</p>
-               <p className="header__up__right__basket__hoverBox__price">{totalAmount} руб</p>  
+                <p className="header__up__right__basket__hoverBox__psc">
+                  {" "}
+                  {cardAmount} товара
+                </p>
+                <p className="header__up__right__basket__hoverBox__price">
+                  {totalAmount} руб
+                </p>
               </div>
             ) : null}
-            <Link to="/karzina">
+            <Link to="/basket">
               <img src={basketPng} alt="basket" />
             </Link>
           </div>
@@ -89,6 +101,7 @@ const Navbar = () => {
                 className="header__down__item"
                 key={`${name}-${path}-${index}`}
                 to={path}
+                onClick={handelDoInitial}
               >
                 {name}
               </NavLink>

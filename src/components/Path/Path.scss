@@ -2,6 +2,14 @@
   display: flex;
   justify-content: flex-end;
   gap: 3px;
+  position: absolute;
+  right: 0px;
+  top: -47px;
+  
+  @media screen and (max-width: 768px) {
+    top: -19px;
+    font-size: 9px;
+  }
 }
 
 .path {
@@ -10,12 +18,8 @@
   line-height: 16px;
   color: #9f9f9f;
 
-  @media screen and (max-width: 768px) {
-    top: -19px;
-    font-size: 9px;
-  }
 
-  & > span {
+  &>span {
     color: #000;
     font-weight: 700;
   }
