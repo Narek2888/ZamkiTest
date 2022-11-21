@@ -1,80 +1,139 @@
-from python_tests.Pages.homepage import HomePage
-from python_tests import config
-import pytest
-from selenium.webdriver.common.by import By
+from python_tests.pageobjects.homepage_obj import Homepage
+from python_tests.pageobjects.page_elements import HomeElements
+from seleniumbase.common.exceptions import *
 
 
+class TestHomepage(Homepage):
 
-basepage = HomePage(config.driver)
-
-
-# adding the decorator
-# @allure.severity(allure.severity_level.NORMAL)
-# @pytest.mark.usefixtures("driver_init")
-def test_open_mainpage():
-
-    basepage.main_page()
-    assert config.url_to_be("http://localhost:3000/")
+    # setUp function is running before each test
+    def setUp(self):
+        super().setUp()
+        Homepage.homepage(self)
 
 
-def test_about_button():
+    def test_home_url(self):
 
-    basepage.main_page()
-    basepage.about_button().click()
-    assert config.url_to_be("http://localhost:3000/about")
+        #open homepage (setUp function is working)
 
+        #get the home url
+        current_url = self.get_current_url()
 
-def test_contacts_button():
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/")
+    
+    def test_aboutbutton(self):
 
-    basepage.main_page()
-    basepage.contacts_button().click()
-    assert config.url_to_be("http://localhost:3000/contacts")
+        #open homepage (setUp function is working)
 
+        #click on the button "О Компании"
+        Homepage.aboutbutton(self)
 
-def test_novelty_button():
+        #get the home url
+        current_url = self.get_current_url()
 
-    basepage.main_page()
-    basepage.novelty_button().click()
-    assert config.url_to_be("http://localhost:3000/new")
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/about")
 
+    def test_contactsbutton(self):
 
-def test_partners_button():
+        #open homepage (setUp function is working)
 
-    basepage.main_page()
-    basepage.partners_button().click()
-    assert config.url_to_be("http://localhost:3000/partners")
+        #click on the button "Контакты"
+        Homepage.contactsbutton(self)
 
+        #get the home url
+        current_url = self.get_current_url()
 
-def test_delivery_button():
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/contacts")
+    
+    def test_newbutton(self):
 
-    basepage.main_page()
-    basepage.delivery_button().click()
-    assert config.url_to_be("http://localhost:3000/delivery")
+        #open homepage (setUp function is working)
 
+        #click on the button "Новинки"
+        Homepage.newbutton(self)
 
-def test_keys_production_button():
+        #get the home url
+        current_url = self.get_current_url()
 
-    basepage.main_page()
-    basepage.keys_production_button().click()
-    assert config.url_to_be("http://localhost:3000/key-manufacture")
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/new")
+    
+    def test_partnersbutton(self):
 
+        #open homepage (setUp function is working)
 
-def test_basket_button():
+        #click on the button "Производители"
+        Homepage.partnersbutton(self)
 
-    basepage.main_page()
-    basepage.basket().click()
-    assert config.url_to_be("http://localhost:3000/karzina")
+        #get the home url
+        current_url = self.get_current_url()
 
-def test_about_text():
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/partners")
+    
+    def test_deliverybutton(self):
 
-    basepage.main_page()
-    basepage.about_button().click()
-    text = config.presence_of_element_located(By.XPATH, '//*[@id="root"]/div/div[2]/div[1]/div[2]').get_attribute('innerHTML')
+        #open homepage (setUp function is working)
 
-    import requests
+        #click on the button "Доставка"
+        Homepage.deliverybutton(self)
 
-    url = "https://zamki-strapi.codium.pro/api/about"
+        #get the home url
+        current_url = self.get_current_url()
 
-    data = requests.get(url).json()
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/delivery")
 
-    assert data['data']['attributes']['about_html'] == text
+    def test_key_manufacturebutton(self):
+
+        #open homepage (setUp function is working)
+
+        #click on the button "Изготовление ключей"
+        Homepage.key_manufacturebutton(self)
+
+        #get the home url
+        current_url = self.get_current_url()
+
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/key-manufacture")
+
+    def test_click_logo(self):
+
+        #from homepage go to "О Компании" page
+        Homepage.aboutbutton(self)
+
+        #click on company logo
+        Homepage.logo_button(self)
+
+        #get current url
+        current_url = self.get_current_url()
+
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/")
+
+    def test_searchfield(self):
+
+        text = "Защелка врезнаяe"
+
+        self.send_keys(HomeElements.searchfield_xpath, text)
+        
+        try:
+            self.assert_text_visible(text, '//*[@id="root"]/div/div[3]/div[1]/div[2]/div/div[2]')
+        except TextNotVisibleException:
+            self.assert_text_visible("По вышему запросу нечего не нашли:", '//*[@id="root"]/div/div[3]/div[1]/div[2]')
+
+    
+    def test_basket_button(self):
+
+        #click on basket img
+        Homepage.basket_button(self)
+
+        #get current url
+        current_url = self.get_current_url()
+
+        #check the current url
+        self.assert_equal(current_url, "http://localhost:3000/basket")
+
+    
