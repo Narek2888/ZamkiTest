@@ -1,6 +1,7 @@
 from python_tests.pageobjects.homepage_obj import Homepage
 from python_tests.pageobjects.page_elements import HomeElements
 import requests
+import time
 
 
 class TestAboutPage(Homepage):
@@ -14,7 +15,7 @@ class TestAboutPage(Homepage):
     def test_about_text(self):
 
         # takeing the text with HTML code
-        text = self.get_property(HomeElements.about_text_xpath, "innerHTML")
+        text = self.get_attribute(HomeElements.about_text_xpath, "innerHTML", timeout=10)
 
         # getting data from the request
         data = requests.get("https://zamki-strapi.codium.pro/api/about").json()

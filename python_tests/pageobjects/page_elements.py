@@ -8,6 +8,7 @@ class HomeElements():
     partners_url = f"{home_url}partners"
     delivery_url = f"{home_url}delivery"
     key_manufacture_url = f"{home_url}key-manufacture"
+    basket_url = f"{home_url}basket"
     
     
     # homepage elements xpaths

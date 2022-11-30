@@ -1,6 +1,7 @@
 from python_tests.pageobjects.homepage_obj import Homepage
 from python_tests.pageobjects.page_elements import HomeElements
 import requests
+import time
 
 
 class TestKeyManufacturePage(Homepage):
@@ -14,8 +15,8 @@ class TestKeyManufacturePage(Homepage):
     def test_key_manufacture_text(self):
 
         # takeing the text with HTML code
-        text = self.get_property(HomeElements.key_manufacture_text_xpath, "innerHTML")
-
+        text = self.get_attribute(HomeElements.key_manufacture_text_xpath, "innerHTML", timeout=15)
+        
         # getting data from the request
         data = requests.get("https://zamki-strapi.codium.pro/api/lock-production").json()
         

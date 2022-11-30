@@ -30,5 +30,3 @@ class Homepage(BaseCase):
 
     def basket_button(self):
         self.click(HomeElements.basket_xpath)
-    
-    
