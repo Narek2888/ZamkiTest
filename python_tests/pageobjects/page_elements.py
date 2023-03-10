@@ -1,7 +1,7 @@
 class HomeElements():
 
     # links
-    home_url = "http://localhost:3000/"
+    home_url = "https://zamki.codium.pro/"
     about_url = f"{home_url}about"
     contacts_url = f"{home_url}contacts"
     new_url = f"{home_url}new"
@@ -19,8 +19,8 @@ class HomeElements():
     delivery_xpath = '//*[@id="root"]/div/div[1]/div[2]/a[5]'
     key_manufacture_xpath = '//*[@id="root"]/div/div[1]/div[2]/a[6]'
     logo_xpath = '//*[@id="root"]/div/div[1]/div[1]/div[1]/div[2]/a/img'
-    searchfield_xpath = '//*[@id="root"]/div/div[1]/div[1]/div[2]/div[1]/input'
-    basket_xpath = '//*[@id="root"]/div/div[1]/div[1]/div[2]/div[2]/a/img'
+    searchfield_xpath = '//*[@id="root"]/div/div[1]/div[1]/div[2]/div[2]/input'
+    basket_xpath = '//*[@id="root"]/div/div[1]/div[1]/div[2]/div[3]'
     menu_icon_xpath = '//*[@id="root"]/div/div[1]/div[1]/div[1]/div[1]/img'
     
     # about_page elements

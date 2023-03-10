@@ -17,8 +17,8 @@ class PartnersPage(Partnerspage):
 
     def test_partners_logo(self):
 
-        # tekaing data and filtering rul for each partner
-        partners_data = requests.get("https://zamki-strapi.codium.pro/api/brands?populate=*").json()
+        # tekaing data and filtering image url for each partner
+        partners_data = requests.get("https://zamki-strapi.codium.pro/api/brands?populate=deep").json()
         
         info_list = []
 
@@ -30,7 +30,7 @@ class PartnersPage(Partnerspage):
         dom_url_list = []
         
         for i in range(1, len(partners_data['data'])+1):
-            partners_list = self.get_image_url(f'//*[@id="root"]/div/div[2]/div/div[2]/div[2]/a[{i}]/img')
+            partners_list = self.get_image_url(f'//*[@id="root"]/div/div[2]/div/div[3]/a[{i}]/img')
             dom_url_list.append(partners_list)
 
         print("/n dom url list", dom_url_list)

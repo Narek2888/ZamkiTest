@@ -19,7 +19,7 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/")
+        self.assert_equal(current_url, "https://zamki.codium.pro/")
     
     def test_aboutbutton(self):
 
@@ -32,7 +32,7 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/about")
+        self.assert_equal(current_url, "https://zamki.codium.pro/about")
 
     def test_contactsbutton(self):
 
@@ -45,7 +45,7 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/contacts")
+        self.assert_equal(current_url, "https://zamki.codium.pro/contacts")
     
     def test_newbutton(self):
 
@@ -58,7 +58,7 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/new")
+        self.assert_equal(current_url, "https://zamki.codium.pro/new")
     
     def test_partnersbutton(self):
 
@@ -71,7 +71,7 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/partners")
+        self.assert_equal(current_url, "https://zamki.codium.pro/partners")
     
     def test_deliverybutton(self):
 
@@ -84,7 +84,7 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/delivery")
+        self.assert_equal(current_url, "https://zamki.codium.pro/delivery")
 
     def test_key_manufacturebutton(self):
 
@@ -97,7 +97,7 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/key-manufacture")
+        self.assert_equal(current_url, "https://zamki.codium.pro/key-manufacture")
 
     def test_click_logo(self):
 
@@ -111,18 +111,19 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/")
+        self.assert_equal(current_url, "https://zamki.codium.pro/")
 
     def test_searchfield(self):
 
-        text = "Защелка врезнаяe"
+        text = "Защелка врезная"
 
         self.send_keys(HomeElements.searchfield_xpath, text)
+        self.click('//*[@id="root"]/div/div[1]/div[1]/div[2]/div[2]/button')
         
         try:
-            self.assert_text_visible(text, '//*[@id="root"]/div/div[3]/div[1]/div[2]/div/div[2]')
+            self.assert_text_visible(text, '//*[@id="root"]/div/div[2]/div[2]')
         except TextNotVisibleException:
-            self.assert_text_visible("По вышему запросу нечего не нашли:", '//*[@id="root"]/div/div[3]/div[1]/div[2]')
+            self.assert_text_visible("По вашему запросу ничего не нашли:", '//*[@id="root"]/div/div[3]/div[1]/div[2]')
 
     
     def test_basket_button(self):
@@ -134,6 +135,6 @@ class TestHomepage(Homepage):
         current_url = self.get_current_url()
 
         #check the current url
-        self.assert_equal(current_url, "http://localhost:3000/basket")
+        self.assert_equal(current_url, "https://zamki.codium.pro/basket")
 
     
