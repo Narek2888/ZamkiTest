@@ -68,7 +68,6 @@ Thumbs.db
 .env.test.local
 .env.production.local
 .venv
-.pytest_cache
 
 npm-debug.log*
 yarn-debug.log*
