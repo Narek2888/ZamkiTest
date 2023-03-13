@@ -1,1 +1,1 @@
-selenium-base 4.13.13
+selenium-base == 4.13.13
