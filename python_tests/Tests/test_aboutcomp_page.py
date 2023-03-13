@@ -1,7 +1,6 @@
 from python_tests.pageobjects.homepage_obj import Homepage
 from python_tests.pageobjects.page_elements import HomeElements
 import requests
-import time
 
 
 class TestAboutPage(Homepage):
