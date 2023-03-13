@@ -6,8 +6,6 @@ name: Python application
 on:
   push:
     branches: [ "ZamkiTest" ]
-  pull_request:
-    branches: [ "ZamkiTest" ]
 
 permissions:
   contents: read
