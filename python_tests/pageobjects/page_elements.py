@@ -36,3 +36,30 @@ class HomeElements():
     key_manufacture_text_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[2]/div[2]'
 
     menu_links = ['about', 'contacts', 'new', 'partners', 'delivery', 'key_manufacture']
+
+    # category list elements
+    zamki_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[2]/div'
+    ruchki_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[3]/div'
+    petli_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[4]/div'
+    zasholki_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[5]/div'
+    fiksatori_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[6]/div'
+    cilind_mex_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[7]/div'
+    perekod_klyuch_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[8]/div'
+    mebelnie_ruchki_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[9]/div'
+    mebelnaya_furnit_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[10]/div'
+    dvernaya_furnit_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[11]/div'
+    dvernie_dovodchiki_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[12]/div'
+    razdvizh_mexanizmi_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[13]/div'
+    avtomat_porogi_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[14]/div'
+    zasovi_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[15]/div'
+    okon_furnit_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[16]/div'
+    pocht_yashiki_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[17]/div'
+
+    
+    # subcategory list
+
+    # category "Замки"
+    vreznie_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[2]/div[2]/button[1]'
+
+    # category "Ручки"
+    na_razdelnom_osnovanii_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[3]/div[2]/button[1]'
