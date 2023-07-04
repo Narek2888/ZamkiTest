@@ -1,0 +1,30 @@
+python_tests/Tests/test_zamki_vreznie.py::CategoryList::test_vreznie
+--------------------------------------------------------------------
+Last Page: https://zamki.codium.pro/subcategories/1/1
+ Duration: 18.45s
+  Browser: Chrome 114.0.5735.199
+   Driver: chromedriver 114.0.5735.90
+Timestamp: 1688470035  (Unix Timestamp)
+     Date: Tuesday, 4 July 2023
+     Time: 3:27:15 PM  (Кавказское время (зима), UTC+04:00)
+--------------------------------------------------------------------
+Traceback:
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 57, in testPartExecutor
+    yield
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 623, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 579, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "c:\Users\User\Desktop\ZamkiTest\python_tests\Tests\test_zamki_vreznie.py", line 20, in test_vreznie
+    text_vreznie = self.get_text('//*[@id="root"]/div/div[2]/div/div[2]/div[4]/div[1]')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 1645, in get_text
+    element = page_actions.wait_for_element_visible(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\fixtures\page_actions.py", line 472, in wait_for_element_visible
+    timeout_exception(ElementNotVisibleException, message)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\fixtures\page_actions.py", line 228, in timeout_exception
+    raise exc(msg)
+Exception: Message: 
+ Element {//*[@id="root"]/div/div[2]/div/div[2]/div[4]/div[1]} was not visible after 7 seconds!

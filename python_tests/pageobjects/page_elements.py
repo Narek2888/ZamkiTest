@@ -63,3 +63,5 @@ class HomeElements():
 
     # category "Ручки"
     na_razdelnom_osnovanii_xpath = '//*[@id="root"]/div/div[2]/div/div[1]/div[3]/div[2]/button[1]'
+
+    

@@ -1,0 +1,30 @@
+python_tests/Tests/test_aboutcomp_page.py::TestAboutPage::test_about_text
+--------------------------------------------------------------------
+Last Page: https://zamki.codium.pro/about
+ Duration: 7.32s
+  Browser: Chrome 114.0.5735.199
+   Driver: chromedriver 114.0.5735.90
+Timestamp: 1688469822  (Unix Timestamp)
+     Date: Tuesday, 4 July 2023
+     Time: 3:23:42 PM  (Кавказское время (зима), UTC+04:00)
+--------------------------------------------------------------------
+Traceback:
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 57, in testPartExecutor
+    yield
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 623, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 579, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "c:\Users\User\Desktop\ZamkiTest\python_tests\Tests\test_aboutcomp_page.py", line 26, in test_about_text
+    self.assert_equal(text, data_text)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 6656, in assert_equal
+    self.assertEqual(first, second, msg=msg)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 873, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 1253, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 703, in fail
+    raise self.failureException(msg)
+Exception: '<svg width="50" height="50" viewBox="0 0 3[852 chars]svg>' != '<h1 style="margin-left:0px;"><span class="[2520 chars]</p>'
+Diff is 3471 characters long. Set self.maxDiff to None to see it.
